@@ -33,13 +33,15 @@ css margin可以改变容器的尺寸。
 
 {% codepen SPxiaomin QdOzKM 0 html 265 %}
 
-适用场景：
+应用场景：
 
 1. 一侧定宽的自适应布局
 
     {% codepen SPxiaomin Ndweyw 0 html 265 %}
 
-2. 两端对齐布局
+2. 两端对齐布局（margin负值定位）
+
+    {% codepen SPxiaomin NdXxza 0 result 265 %}
 
 ### margin与占据尺寸
 
@@ -50,3 +52,13 @@ css margin可以改变容器的尺寸。
 示例代码如下：
 
 {% codepen SPxiaomin mRqaKO 0 html 265 %}
+
+应用场景：
+
+1. 滚动容器内上下留白
+
+    {% codepen SPxiaomin XpVXRx 0 result 265 %}
+
+    注意：上面的示例代码需要在非chrome浏览器中才可以看到效果——当在父元素设置padding-top|bottom的时候，padding-bottom是没有效果的，也就是说在非chrome底部无留白。但是通过在子元素上设置margin-top|bottom就可以实现上下留白的效果。
+
+2. 等高布局（多栏或两栏）
