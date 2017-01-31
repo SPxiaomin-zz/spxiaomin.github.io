@@ -41,6 +41,9 @@ css margin可以改变容器的尺寸。
 
 2. 两端对齐布局（margin负值定位）
 
+    有同学肯定会想到通过去掉最后面的，
+    <!-- TODO: 理解下面的代码后，自己重新再实现一遍 -->
+
     {% codepen SPxiaomin NdXxza 0 result 265 %}
 
 ### margin与占据尺寸

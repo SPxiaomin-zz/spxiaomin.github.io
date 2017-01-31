@@ -11,6 +11,10 @@ tags: ['css', '浮动']
 
 {% codepen spxiaomin jVwVOQ 0 css 265 %}
 
+## 借助 `overflow: hidden` bfc 特性
+
+{% codepen SPxiaomin XpVwKw 0 css 265 %}
+
 ## 通过 `::after` & `clear`
 
 
