@@ -41,9 +41,6 @@ css margin可以改变容器的尺寸。
 
 2. 两端对齐布局（margin负值定位）
 
-    有同学肯定会想到通过去掉最后面的，
-    <!-- TODO: 理解下面的代码后，自己重新再实现一遍 -->
-
     {% codepen SPxiaomin NdXxza 0 result 265 %}
 
 ### margin与占据尺寸
@@ -65,3 +62,7 @@ css margin可以改变容器的尺寸。
     注意：上面的示例代码需要在非chrome浏览器中才可以看到效果——当在父元素设置padding-top|bottom的时候，padding-bottom是没有效果的，也就是说在非chrome底部无留白。但是通过在子元素上设置margin-top|bottom就可以实现上下留白的效果。
 
 2. 等高布局（多栏或两栏）
+
+    <!-- TODO: 学习jQuery添加元素的几种方式，并进行总结输出，然后编写相关的js代码 -->
+
+    {% codepen SPxiaomin XpZYQJ 0 result 265 %}
