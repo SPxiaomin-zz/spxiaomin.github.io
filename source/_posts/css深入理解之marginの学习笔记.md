@@ -63,6 +63,6 @@ css margin可以改变容器的尺寸。
 
 2. 等高布局（多栏或两栏）
 
-    <!-- TODO: 学习jQuery添加元素的几种方式，并进行总结输出，然后编写相关的js代码 -->
+    <!-- TODO: 编写代码 -->
 
     {% codepen SPxiaomin XpZYQJ 0 result 265 %}
