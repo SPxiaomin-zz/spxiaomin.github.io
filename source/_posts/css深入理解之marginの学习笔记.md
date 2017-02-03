@@ -63,6 +63,11 @@ css margin可以改变容器的尺寸。
 
 2. 等高布局（多栏或两栏）
 
-    <!-- TODO: 编写代码 -->
-
     {% codepen SPxiaomin XpZYQJ 0 result 265 %}
+
+3. margin负值下的两栏自适应布局
+
+    根据的是元素占据空间跟随margin移动。
+
+    <!-- TODO: 写代码 -->
+    {% codepen SPxiaomin MJGeyR 0 result 265 %}
