@@ -39,7 +39,7 @@ css margin可以改变容器的尺寸。
 
     {% codepen SPxiaomin Ndweyw 0 html 265 %}
 
-2. 两端对齐布局（margin负值定位）
+2. 两端对齐布局
 
     {% codepen SPxiaomin NdXxza 0 result 265 %}
 
