@@ -71,7 +71,7 @@ css margin可以改变容器的尺寸。
 
     {% codepen SPxiaomin MJGeyR 0 result 265 %}
 
-## 参考:
+## 参考
 
 [imooc教程-css深入理解のmargin1-1](http://www.imooc.com/video/12101)
 
