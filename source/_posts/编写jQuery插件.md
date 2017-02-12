@@ -3,13 +3,16 @@ title: 编写jQuery插件
 date: 2017-02-11 10:35:11
 categories: ['技术', '前端技术']
 tags: ['jquery']
+top: 1
 ---
 
 ## 定义，作用
 
-## 使用，注意
+jQuery插件就是扩展jQuery来实现的自定义方法。
 
-编写jQuery插件，要设置默认值，并允许用户修改默认值，或者运行时传入其他值。
+编写jQuery插件的目的是因为jQuery的内置方法永远不可能满足所有的需求。
+
+## 使用，注意
 
 ### 简单的jQuery插件——highlight:
 
@@ -23,15 +26,30 @@ tags: ['jquery']
 
 {% codepen SPxiaomin xgQBwX 0 js 265 %}
 
+or 使用 `$.extend` 来处理默认值。
+
+{% codepen SPxiaomin oBJLdP 0 js 265 %}
+
 #### 第三版（最终版）
 
-此版能够让用户修改默认值。
+此版能够让用户修改默认值，将默认值放在 `$.fn.highlight` 对象本身。
 
 {% codepen SPxiaomin pRQYrE 0 js 265 %}
 
+#### 小结
+
+通过上面的三个版本，我们得出编写一个jQuery插件的原则:
+
+1. 给 `$.fn` 绑定函数，实现插件的代码逻辑；
+2. 插件函数最后要 `return this;` 以支持链式调用；
+3. 插件函数要有默认值并且允许用户修改，绑定在 `$.fn.<pluginName>.defaults` 上；
+4. 用户在调用时可传入设定值以便覆盖默认值；
+
 ### 针对特定元素的扩展
 
+主要通过的是jQuery中的 `filter` 方法来实现的。
 
+{% codepen SPxiaomin jyQJom 0 js 265 %}
 
 ### 注意
 

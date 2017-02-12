@@ -41,3 +41,29 @@ var body = $('body');
 $('<p>test</p>').appendTo(body);
 // 注意，此方法不能够添加纯文本内容，例如 'test'
 ```
+
+## attr
+
+### 设置或获取属性
+
+设置 `所有匹配` 的DOM元素
+
+```javascript
+$('img').attr('width', '10');
+
+$('img').attr({width: '10', height: '10'});
+```
+
+获取 `第一个匹配` 的DOM元素
+
+```javascript
+$('img').attr('width');
+```
+
+### 删除属性
+
+removeAttr
+
+```javascript
+$('p').removeAttr('id class')
+```
