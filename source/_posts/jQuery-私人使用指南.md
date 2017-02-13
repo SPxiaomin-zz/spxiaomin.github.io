@@ -67,3 +67,17 @@ removeAttr
 ```javascript
 $('p').removeAttr('id class')
 ```
+
+## 遍历
+
+### 遍历数组
+
+each，为每一个匹配的元素运行指定的函数，如果 `return false` 的话，可以提早终止循环。
+
+Syntax
+```javascript
+$(selector).each(function(index, element));
+// 如果想要获得当前元素的话，也可以通过 `this`，不过这是DOM对象，转换为jQuery对象需要这样 `$(this)`。
+```
+
+{% codepen SPxiaomin NdeyOe 0 js 265 %}
