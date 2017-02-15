@@ -26,3 +26,7 @@ float 的 containing box 是父 block 元素的 content-box。
 ## float & stacking context
 
 {% codepen SPxiaomin MJxazy 0 result 265 %}
+
+## float & clear
+
+{% codepen SPxiaomin EZMyxV 0 result 265 %}
