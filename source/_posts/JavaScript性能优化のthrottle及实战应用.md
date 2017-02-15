@@ -5,8 +5,6 @@ categories: ['技术', '前端技术']
 tags: ['javascript', '性能优化']
 ---
 
-!!!未完成
-
 ## 需要节流(throttle)的缘由
 
 浏览器中某些计算和处理要比其它的昂贵很多。比如，DOM操作比起非DOM交互需要更多的内存和CPU时间。连续尝试进行过多的DOM相关操作可能会导致浏览器挂起，有时候甚至会崩溃。尤其在IE中使用 onresize 事件处理程序的时候容易发生，当调整浏览器大小的时候，该事件会连续触发。在 onresize 事件处理程序内部如果尝试进行DOM操作，其高频率的更改可能会让浏览器崩溃。为了绕开这个问题，你可以使用定时器对该函数进行节流。
@@ -28,6 +26,32 @@ function throttle(method, context) {
 
 throttle() 函数接受两个参数: 要执行的函数以及在哪个作用域中执行。如果没有给出第二个参数，那么就在 `全局作用域内` 执行该方法。
 
+## 使用节流解决resize事件的问题
+
+假设有一个 `<div />` 元素需要保持它的高度始终等同于宽度。那么实现这一功能的JavaScript如下:
+
+```javascript
+window.onresize = function() {
+    var div = document.getElementById('myDiv');
+    div.style.height = div.offsetWidth + 'px';
+};
+```
+
+这段非常简单的例子有两个问题可能会造成浏览器运行缓慢。首先，要计算 offsetWidth 属性，如果该元素或者页面上其它元素有非常复杂的CSS样式，那么这个过程将会很复杂。其次，设置某个元素的高度需要对页面进行回流来令改动生效。如果页面有很多元素同时应用了相当数量的CSS的话，这又需要很多计算。因此，如果在极短的时间内进行过多的计算，就可能导致浏览器挂起，有时候甚至会崩溃。
+
+用throttle()函数来解决如下:
+
+```javascript
+function resizeDiv() {
+    var div = document.getElementById('myDiv');
+    div.style.height = div.offsetWidth + 'px';
+}
+
+window.onresize = function() {
+    throttle(resizeDiv);
+};
+```
+
 ## 节流的实战应用
 
 {% codepen SPxiaomin WRLWEj 0 result 265 %}
@@ -35,3 +59,5 @@ throttle() 函数接受两个参数: 要执行的函数以及在哪个作用域�
 ## 参考
 
 - JavaScript高级程序设计(第3版)
+
+END.
