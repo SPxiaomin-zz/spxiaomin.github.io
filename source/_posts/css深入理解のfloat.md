@@ -20,7 +20,7 @@ tags: ['css', 'float']
 <https://www.w3.org/TR/CSS2/visudet.html#containing-block-details>
 <https://www.w3.org/TR/CSS2/visuren.html#block-boxes>
 
-浮动最有趣的特性就是文字环绕效果(除非被 `clear` 属性禁止了)，文字会环绕的左浮动盒的右侧排列、右浮动盒的左侧排列。顺带讲解一下文字环绕效果相关的原理知识：
+浮动最有趣的特性就是文字环绕效果(除非被 `clear` 属性禁止了)，文字会环绕在左浮动盒的右侧排列、右浮动盒的左侧排列。顺带讲解一下文字环绕效果相关的原理知识：因为浮动盒不在流内，在浮动盒子之前和之后创建的非定位 `块盒(block boxes)` 会照旧垂直排列，表现得就好像浮动不存在一样。
 <!-- stop 写浮动导致行盒 shorted, 并可能向下移动直到fit or no other float -->
 
 ## float & containing box
