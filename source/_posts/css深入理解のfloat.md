@@ -54,7 +54,7 @@ tags: ['css', 'float']
 
 ## float & bfc
 
-在同一个bfc中，正常流(normal flow)中生成bfc的元素不能够与float元素的 margin box 有重叠。可以用这个效果来实现一侧定宽的自适应布局，可复用性非常好。
+在同一个bfc中，正常流(normal flow)中生成bfc的元素的 `border box` 不能够与float元素的 `margin box` 有重叠。可以用这个效果来实现一侧定宽的自适应布局，可复用性非常好。
 
 {% codepen SPxiaomin zNeNqK 0 result 265 %}
 
