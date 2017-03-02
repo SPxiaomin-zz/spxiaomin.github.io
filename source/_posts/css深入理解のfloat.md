@@ -29,7 +29,7 @@ tags: ['css', 'float']
 
 {% codepen SPxiaomin ggyrgr 0 result 265 %}
 
-注意是 `块盒(block boxes)` 而不是 `block-level box` (block img replaced element) 或者 `block container box`(inline-block)；
+注意是 `块盒(block boxes)` 而不是 `block-level box` (e.g. block img replaced element) 或者 `block container box`(inline-block)；
 
 {% codepen SPxiaomin EZBXNM 0 result 265 %}
 <!-- TODO: 插入这些box的解释 -->
