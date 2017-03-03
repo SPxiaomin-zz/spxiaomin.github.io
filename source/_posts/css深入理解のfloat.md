@@ -60,10 +60,15 @@ tags: ['css', 'float']
 
 ## float & margin collapse
 
+浮动元素是不会和父元素发生 `margin collapse` 的，因为 `margin collapse` 的前提是在同一个bfc中的流内块级元素。
+
+{% codepen SPxiaomin OpNmep 0 result 265 %}
+
 ## float & stacking context
 
-{% codepen SPxiaomin MJxazy 0 result 265 %}
+当浮动元素和正常流(normal flow)中的其它元素
 
+{% codepen SPxiaomin MJxazy 0 result 265 %}
 
 ## float & clear
 
