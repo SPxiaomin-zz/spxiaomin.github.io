@@ -66,7 +66,7 @@ tags: ['css', 'float']
 
 ## float & stacking context
 
-当浮动元素和正常流(normal flow)中的其它元素
+浮动的内容堆叠得就好像浮动生成了新的堆叠上下文，除了定位元素和实际上生成了新的堆叠上下文的元素参与浮动的父堆叠上下文。当浮动元素和正常流(normal flow)中的其它元素重叠的时候，浮动元素会被渲染在非定位流内块(non-positioned in-flow blocks)之上，但是在流内内联(in-flow inlines)之下。
 
 {% codepen SPxiaomin MJxazy 0 result 265 %}
 
