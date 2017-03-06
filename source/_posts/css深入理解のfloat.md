@@ -72,6 +72,8 @@ tags: ['css', 'float']
 
 ## float & clear
 
+可以使用 clear 属性来清除浮动，这样被清除浮动的盒子的 `top border edge` 会与浮动盒子的 `bottom margin edge` 对齐，这是通过在被清除浮动的盒子的 `top margin edge` 上方添加 `clearance` 来实现的。
+
 {% codepen SPxiaomin EZMyxV 0 result 265 %}
 
 ## 参考
