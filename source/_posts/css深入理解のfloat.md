@@ -76,6 +76,24 @@ tags: ['css', 'float']
 
 {% codepen SPxiaomin EZMyxV 0 result 265 %}
 
+---
+
+## float & absolute
+
+在元素被设置为 absolute 之后，浮动就失效了。
+
+## float & root element
+
+<!-- TODO: 测试一下root element是指html or body -->
+
+## float & float
+
+<!-- TODO: 测试一下源文档中后面的浮动元素必须在前面的元素的 `margin edge` 下方么 -->
+
+## float & two collapsing margins
+
+<!-- TODO: 浮动与上面元素的关系，浮动与下面元素的关系是怎么样的 -->
+
 ## 参考
 
 [w3c css2 floats](https://www.w3.org/TR/CSS2/visuren.html#floats)
