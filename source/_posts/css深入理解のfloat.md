@@ -78,9 +78,17 @@ tags: ['css', 'float']
 
 ---
 
+## float
+
+浮动盒子旁边的内容会在左侧或是右侧流动，从浮动盒子的 `top margin edge` 开始。
+
+{% codepen SPxiaomin NpbMvM 0 result 265 %}
+
 ## float & absolute
 
 在元素被设置为 absolute 之后，浮动就失效了。
+
+{% codepen SPxiaomin XMNqmG 0 result 265 %}
 
 ## float & root element
 
