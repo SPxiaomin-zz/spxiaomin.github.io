@@ -90,13 +90,21 @@ tags: ['css', 'float']
 
 {% codepen SPxiaomin XMNqmG 0 result 265 %}
 
-## float & root element
+## float & containing block
 
-<!-- TODO: 测试一下root element是指html or body -->
+一个左浮动盒的 `left margin edge` 不能在其 `containing block` 的 `left edge` 之左。右浮动同样。
 
 ## float & float
 
-<!-- TODO: 测试一下源文档中后面的浮动元素必须在前面的元素的 `margin edge` 下方么 -->
+### 同方向
+
+如果在源文档中，有比当前左浮动盒更前的元素生成了左浮动盒，那么当前左浮动盒或者其 `left outer edge` 必须在更前的浮动盒的 `right outer edge` 的右边，或者当前左浮动盒的 `top margin edge` 在更前的浮动盒的 `bottom margin edge` 的下方。右浮动盒同理。
+
+{% codepen SPxiaomin dvvObX 0 result 265 %}
+
+### 不同方向
+
+
 
 ## float & two collapsing margins
 
