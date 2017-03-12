@@ -94,6 +94,10 @@ tags: ['css', 'float']
 
 一个左浮动盒的 `left margin edge` 不能在其 `containing block` 的 `left edge` 之左。右浮动同样。
 
+一个浮动盒子的 `top margin edge` 不能高于其 `containing block` 的 `top edge`。
+
+{% codepen SPxiaomin pePpMV 0 result 265 %}
+
 ## float & float
 
 ### 同方向
@@ -104,7 +108,9 @@ tags: ['css', 'float']
 
 ### 不同方向
 
+一个左浮动盒子的 `right outer edge` 不可以在与之相邻的右浮动盒子的 `left outer edge` 之右。右浮动盒子同理。
 
+{% codepen SPxiaomin PpmEXG 0 result 265 %}
 
 ## float & two collapsing margins
 
