@@ -100,6 +100,10 @@ tags: ['css', 'float']
 
 ## float & float
 
+当前浮动盒子的 `top outer edge` 不可高于 位于源文档中当前元素之前的元素生成的浮动盒子的 `top outer edge`。
+
+{% codepen SPxiaomin QpgYQm 0 result 265 %}
+
 ### 同方向
 
 如果在源文档中，有比当前左浮动盒更前的元素生成了左浮动盒，那么当前左浮动盒或者其 `left outer edge` 必须在更前的浮动盒的 `right outer edge` 的右边，或者当前左浮动盒的 `top margin edge` 在更前的浮动盒的 `bottom margin edge` 的下方。右浮动盒同理。
@@ -111,6 +115,12 @@ tags: ['css', 'float']
 一个左浮动盒子的 `right outer edge` 不可以在与之相邻的右浮动盒子的 `left outer edge` 之右。右浮动盒子同理。
 
 {% codepen SPxiaomin PpmEXG 0 result 265 %}
+
+## float 与 block boxes
+
+当前浮动盒子的 `top outer edge` 不可高于 位于源文档中当前元素之前的元素生成的 `block box` 的 `top outer edge`。
+
+{% codepen SPxiaomin BWZMdR 0 result 265 %}
 
 ## float & two collapsing margins
 
