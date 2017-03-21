@@ -78,11 +78,17 @@ tags: ['css', 'float']
 
 ---
 
+这些规则里面指的其他元素指的仅仅是与当前浮动在同一个块级格式化上下文的其他元素。
+
+{% codepen SPxiaomin mWXaQB 0 result 265 %}
+
 ## float
 
 浮动盒子旁边的内容会在左侧或是右侧流动，从浮动盒子的 `top margin edge` 开始。
 
 {% codepen SPxiaomin NpbMvM 0 result 265 %}
+
+一个左浮动盒子必须被尽可能往左放，一个右浮动盒子必须被尽可能往右放。一个更高的位置优先于一个更右的位置。
 
 ## float & absolute
 
@@ -98,8 +104,9 @@ tags: ['css', 'float']
 
 {% codepen SPxiaomin pePpMV 0 result 265 %}
 
-一个左浮动的盒子，如果在其左侧有另外的左浮动盒子，
-<!-- TODO: stop wrting here -->
+一个左浮动的盒子，如果在其左侧有另外的左浮动盒子，那么这个左浮动盒子的 `right margin edge` 不可以在 `containing box's right edge` 之右。除非当前的左浮动盒子已经尽可能靠左了。对于右浮动盒子也是同样的。
+
+{% codepen SPxiaomin xqpWQv 0 result 265 %}
 
 ## float & float
 
