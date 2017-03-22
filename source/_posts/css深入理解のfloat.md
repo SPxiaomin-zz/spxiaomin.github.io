@@ -104,25 +104,25 @@ tags: ['css', 'float']
 
 {% codepen SPxiaomin pePpMV 0 result 265 %}
 
-一个左浮动的盒子，如果在其左侧有另外的左浮动盒子，那么这个左浮动盒子的 `right margin edge` 不可以在 `containing box's right edge` 之右。除非当前的左浮动盒子已经尽可能靠左了。对于右浮动盒子也是同样的。
+一个左浮动的盒子如果在其左侧有另外的左浮动盒子，那么这个左浮动盒子的 `right margin edge` 不可以在 `containing box's right edge` 之右。除非当前的左浮动盒子已经尽可能靠左了。对于右浮动盒子也是同样的。
 
 {% codepen SPxiaomin xqpWQv 0 result 265 %}
 
 ## float & float
 
-当前浮动盒子的 `top outer edge` 不可高于 位于源文档中当前元素之前的元素生成的浮动盒子的 `top outer edge`。
+当前浮动盒子的 `top margin edge` 不可高于 位于源文档中当前元素之前的元素生成的浮动盒子的 `top margin edge`。
 
 {% codepen SPxiaomin QpgYQm 0 result 265 %}
 
 ### 同方向
 
-如果在源文档中，有比当前左浮动盒更前的元素生成了左浮动盒，那么当前左浮动盒或者其 `left outer edge` 必须在更前的浮动盒的 `right outer edge` 的右边，或者当前左浮动盒的 `top margin edge` 在更前的浮动盒的 `bottom margin edge` 的下方。右浮动盒同理。
+如果在源文档中，有比当前左浮动盒更前的元素生成了左浮动盒，那么当前左浮动盒或者其 `left margin edge` 必须在更前的浮动盒的 `right margin edge` 的右边，或者当前左浮动盒的 `top margin edge` 在更前的浮动盒的 `bottom margin edge` 的下方。右浮动盒同理。
 
 {% codepen SPxiaomin dvvObX 0 result 265 %}
 
 ### 不同方向
 
-一个左浮动盒子的 `right outer edge` 不可以在与之相邻的右浮动盒子的 `left outer edge` 之右。右浮动盒子同理。
+一个左浮动盒子的 `right margin edge` 不可以在与之相邻的右浮动盒子的 `left margin edge` 之右。右浮动盒子同理。
 
 {% codepen SPxiaomin PpmEXG 0 result 265 %}
 
