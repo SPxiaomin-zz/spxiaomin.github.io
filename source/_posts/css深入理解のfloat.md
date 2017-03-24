@@ -110,7 +110,7 @@ tags: ['css', 'float']
 
 ## float & float
 
-当前浮动盒子的 `top margin edge` 不可高于 位于源文档中当前元素之前的元素生成的浮动盒子的 `top margin edge`。
+当前浮动盒子的 `top margin edge` 不可高于 任何位于源文档中当前元素之前的元素生成的浮动盒子的 `top margin edge`。
 
 {% codepen SPxiaomin QpgYQm 0 result 265 %}
 
