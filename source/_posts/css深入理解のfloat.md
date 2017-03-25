@@ -128,19 +128,22 @@ tags: ['css', 'float']
 
 ## float 与 block boxes
 
-当前浮动盒子的 `top outer edge` 不可高于 位于源文档中当前元素之前的元素生成的 `block box` 的 `top outer edge`。
+当前浮动盒子的 `top margin edge` 不可高于 任何位于源文档中当前元素之前的元素生成的 `block box` 的 `top margin edge`。
+
+其实就是当前浮动盒子的 `top margin edge` 在 任何位于源文档中当前元素之前的元素生成的 `block box's bottom margin edge` 之下。
 
 {% codepen SPxiaomin BWZMdR 0 result 265 %}
 
 ## float 与 line-box
 
-当前浮动盒子的 `top outer edge` 不可高于 位于源文档中当前元素之前的元素生成的 `box` 所在的 `line-box` 的 `top`。
+当前浮动盒子的 `top margin edge` 不可高于 任何 位于源文档中当前元素之前的元素生成的 `box` 所在的 `line-box` 的 `top`。
+
+其实就是当前浮动盒子与 `line-box(包含有源文档中当前浮动元素之前的元素生成的 box)` 有两种关系：
+
+1. 当前浮动盒子的 `top margin edge` 与 `line box's top` 对齐；
+2. 当前浮动盒子的 `top margin edge` 在 `line box` 之下，并且与 `line box's bottom` 对齐；
 
 {% codepen SPxiaomin yMpKpj 0 result 265 %}
-
-## float & two collapsing margins
-
-<!-- TODO: 浮动与上面元素的关系，浮动与下面元素的关系是怎么样的 -->
 
 ## 参考
 
