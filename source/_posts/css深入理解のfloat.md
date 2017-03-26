@@ -84,11 +84,24 @@ tags: ['css', 'float']
 
 ## float
 
-浮动盒子旁边的内容会在左侧或是右侧流动，从浮动盒子的 `top margin edge` 开始。
+value: left | right | none | inherit；
+initial: none;
+Applies to: all, but 当元素设置了 absolute or fixed 的时候，float's used value is none；
+<!-- TODO: specified value & computed value & used value & local value 区别插入学习——参考规范&css 权威指南 -->
+inherited: none;
+percentages: N/A；
+Media: visual；
+computed value: as specified；
+
+浮动盒子是一个 `block box`；
+
+<!--  -->
+
+浮动盒子旁边的内容会在左侧或是右侧流动，从浮动盒子的 `top margin edge` 开始(但是当存在 `clear` 的时候另说)。
 
 {% codepen SPxiaomin NpbMvM 0 result 265 %}
 
-一个左浮动盒子必须被尽可能往左放，一个右浮动盒子必须被尽可能往右放。一个更高的位置优先于一个更右的位置。
+一个浮动盒子必须被尽可能往高放。一个左浮动盒子必须被尽可能往左放，一个右浮动盒子必须被尽可能往右放。一个更高的位置优先于一个更左/右的位置。
 
 ## float & absolute
 
@@ -144,6 +157,12 @@ tags: ['css', 'float']
 2. 当前浮动盒子的 `top margin edge` 在 `line box` 之下，并且与 `line box's bottom` 对齐；
 
 {% codepen SPxiaomin yMpKpj 0 result 265 %}
+
+## 浮动的应用
+
+### 自适应布局
+
+<!-- float & overflow: hidde | float & margin -->
 
 ## 参考
 
