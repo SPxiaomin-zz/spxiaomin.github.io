@@ -90,7 +90,6 @@ Applies to: all, but 当元素设置了 absolute or fixed 的时候，float's us
 <!-- TODO: specified value & computed value & used value & local value 区别插入学习——参考规范&css 权威指南 -->
 inherited: none;
 percentages: N/A；
-Media: visual；
 computed value: as specified；
 
 浮动盒子是一个 `block box`；
