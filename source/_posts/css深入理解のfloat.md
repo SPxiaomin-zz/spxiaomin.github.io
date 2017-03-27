@@ -86,15 +86,15 @@ tags: ['css', 'float']
 
 value: left | right | none | inherit；
 initial: none;
-Applies to: all, but 当元素设置了 absolute or fixed 的时候，float's used value is none；
+Applies to: all, but 当元素设置了 absolute or fixed 的时候，float's computed value is none；
 <!-- TODO: specified value & computed value & used value & local value 区别插入学习——参考规范&css 权威指南 -->
 inherited: none;
 percentages: N/A；
 computed value: as specified；
 
-浮动盒子是一个 `block box`；
+浮动盒子是一个 `block-level box`；
 
-<!--  -->
+<!-- 学会用 js 获取元素的样式，然后通过 dom 操作显示 display 值，看看 jquery css 是获取的什么值 -->
 
 浮动盒子旁边的内容会在左侧或是右侧流动，从浮动盒子的 `top margin edge` 开始(但是当存在 `clear` 的时候另说)。
 
@@ -104,7 +104,7 @@ computed value: as specified；
 
 ## float & absolute
 
-在元素被设置为 absolute 之后，浮动就失效了。
+在元素被设置为 absolute 之后，浮动就失效了，`float` 属性的计算值为 `none`。
 
 {% codepen SPxiaomin XMNqmG 0 result 265 %}
 
