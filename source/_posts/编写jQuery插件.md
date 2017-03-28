@@ -2,7 +2,7 @@
 title: 编写jQuery插件
 date: 2017-02-11 10:35:11
 categories: ['技术', '前端技术']
-tags: ['jquery']
+tags: ['jQuery']
 top: 1
 ---
 
