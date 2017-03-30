@@ -7,6 +7,8 @@ tags: ['jQuery']
 
 在本文将先简单地介绍一下 jQuery 所包含的知识分支及相关分支的用途，然后介绍一下 jQuery UI/jQuery EasyUI/jQuery Mobile 和 jQuery 的关系，以及 zepto 与 jQuery 的关系。
 
+<!-- more -->
+
 ## jQuery 知识分支
 
 jQuery 主要的话，包含如下的六大部分：
