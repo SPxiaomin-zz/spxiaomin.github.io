@@ -63,6 +63,6 @@ UI 和 EasyUI 的区别：前者是由 jQuery 官方进行开发的，后者是�
 
 ## zepto 与 jQuery
 
-<!-- stop writing here -->
+zepto 与 jQuery 有着类似的 api，但是 zepto 定位于移动端，去除了大量 jQuery 的兼容代码，所以体积更小，并且还有一些针对移动端特有的功能，比如 touch 操作。
 
 END.
