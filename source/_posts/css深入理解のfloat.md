@@ -23,7 +23,7 @@ tags: ['css', 'float']
 
 value: left | right | none | inherit；
 initial: none;
-Applies to: all, but 当元素设置了 absolute or fixed 的时候，float's computed value is none；
+Applies to: all, but 当元素 position 设置了 absolute or fixed 的时候，float's computed value is none；
 <!-- TODO: specified value & computed value & used value & local value 区别插入学习——参考规范&css 权威指南 -->
 inherited: none;
 percentages: N/A；
