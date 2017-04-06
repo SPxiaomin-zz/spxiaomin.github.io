@@ -7,6 +7,8 @@ tags: ['jQuery']
 
 ## 示例和参数简介
 
+### 示例一 $.ajax()
+
 {% codepen SPxiaomin mWYJgx 0 js 265 %}
 
 ```
@@ -18,6 +20,10 @@ jsonp: 设置上面示例url中 query string 的 callback；
 jsonpCallback: 设置上面示例url中 query string 的 jsonpCallback；
 success: 请求成功时调用的函数；
 ```
+
+### 示例二 $.getJSON()
+
+{% codepen SPxiaomin NpVRMg 0 js 265 %}
 
 ## 实现原理
 
