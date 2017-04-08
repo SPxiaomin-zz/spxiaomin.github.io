@@ -11,6 +11,8 @@ jQuery 使用 `$` 作为 jQuery 的简写，如果你将其他的框架或库和
 
 jQuery 的团队考虑到了这个问题，并实现了 noConflict() 方法。
 
+<!-- more -->
+
 ## noConflict 方法
 
 noConflict 方法会释放对 `$` 标识符的控制，这样其他脚本就可以使用它了。
@@ -25,9 +27,15 @@ noConflict 方法会释放对 `$` 标识符的控制，这样其他脚本就可�
 
 ### 创建自己的简写
 
-<!-- stop writing here 简介——noConflict 可返回 -->
+noConflict() 可返回对 jQuery 的引用，您可以把它存入变量，以供稍后使用。
 
-###
+{% codepen SPxiaomin EWBLKb 0 js 265 %}
+
+### 函数内
+
+可以把 `$` 符号作为变量传递给 ready 方法。这样就可以在函数内使用 `$` 符号了，而在函数外，依旧不得不使用 jQuery。
+
+{% codepen SPxiaomin NpZMRG 0 js 265 %}
 
 ## References
 
