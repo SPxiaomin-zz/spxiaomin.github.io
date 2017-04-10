@@ -15,7 +15,16 @@ tags: ['css']
 
 ## computed value
 
-<!-- TODO: stop writing here -->
+一个 CSS 属性的 `computed value` 通过如下的方式从 `specified value` 计算得来：
+
+- 处理特殊值 inherit 和 initial，然后
+- 进行一定计算，进而变成——规范中属性描述中的 `computed value` 样子。
+
+`computed value` 的计算典型包括将相对值(比如 em 单位)转换为绝对值。举个栗子: 如果一个元素的 `specified value` 中包括 `font-size: 16px; padding-top: 2em;`，那么 `padding-top` 的 `computed value` 为 `32px`。
+
+但是 `computed value` 是 `pre-layout` 的，简单说就是页面布局之前的值，如果某些属性相对值转绝对值的计算依赖于布局，那么在 `computed value` 中相对值保持不变。
+
+`computed value` 的主要用途就是用于 `继承`。
 
 ## used value
 
