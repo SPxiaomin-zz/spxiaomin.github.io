@@ -5,6 +5,8 @@ categories: ['技术', '前端技术']
 tags: ['css']
 ---
 
+这四个值都是的计算都是发生在浏览器内部的，不过通过 `Window.getComputedStyle` 可以获取 `resolved value(computed or used value, depending on the property)`。
+
 ## specified value
 
 一个 CSS 属性的 `specified value` 是通过如下的三种方式之一进行设置的:
@@ -28,7 +30,18 @@ tags: ['css']
 
 ## used value
 
+一个 CSS 属性的 `used value` 是进行完了所有的计算之后的最终值。
+
+通过如下的四个步骤可以计算出任何 CSS 属性的最终使用值。
+
+1. 通过 `cascading, inheritance, or the default` 得到 `specified value`；
+2. 根据 `规范(specification)` 得到 `computed value`；
+3. `post-layout(布局之后)` 得到 `used value`；
+4. 根据运行环境的限制得到 `actual value`；
+
 ## actual value
+
+<!-- TODO: stop writing here -->
 
 ## References
 
