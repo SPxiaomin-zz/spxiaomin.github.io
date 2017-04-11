@@ -24,7 +24,11 @@ tags: ['css']
 
 `computed value` 的计算典型包括将相对值(比如 em 单位)转换为绝对值。举个栗子: 如果一个元素的 `specified value` 中包括 `font-size: 16px; padding-top: 2em;`，那么 `padding-top` 的 `computed value` 为 `32px`。
 
+<!-- TODO: 加上 used value mdn 中的 position display -->
+
 但是 `computed value` 是 `pre-layout` 的，简单说就是页面布局之前的值，如果某些属性相对值转绝对值的计算依赖于布局，那么在 `computed value` 中相对值保持不变。
+
+<!-- TODO: 加上 mdn computed value 中的 layout percentage & line-height  -->
 
 `computed value` 的主要用途就是用于 `继承`。
 
