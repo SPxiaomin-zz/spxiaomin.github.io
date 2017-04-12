@@ -22,13 +22,15 @@ tags: ['css']
 - 处理特殊值 inherit 和 initial，然后
 - 进行一定计算，进而变成——规范中属性描述中的 `computed value` 样子。
 
-`computed value` 的计算典型包括将相对值(比如 em 单位)转换为绝对值。举个栗子: 如果一个元素的 `specified value` 中包括 `font-size: 16px; padding-top: 2em;`，那么 `padding-top` 的 `computed value` 为 `32px`。
+举几个 `computed value` 的例子：
 
-<!-- TODO: 加上 used value mdn 中的 position display -->
+- `computed value` 的计算典型包括将相对值(比如 em 单位)转换为绝对值。举个栗子: 如果一个元素的 `specified value` 中包括 `font-size: 16px; padding-top: 2em;`，那么 `padding-top` 的 `computed value` 为 `32px`。
 
-但是 `computed value` 是 `pre-layout` 的，简单说就是页面布局之前的值，如果某些属性相对值转绝对值的计算依赖于布局，那么在 `computed value` 中相对值保持不变。
+- 还有就是 `<span style="position: absolute"></span>` 的 `display computed value` 为 `block`。
 
-<!-- TODO: 加上 mdn computed value 中的 layout percentage & line-height  -->
+- 还有是 `computed value` 是 `pre-layout` 的，简单说就是页面布局之前的值。举个例子，如果某些属性的百分数相对值转绝对值的计算依赖于页面的布局情况，那么在 `computed value` 中还是保持百分数相对值不变。
+
+- 无单位的 `line-height` 数值，`specified value` 和 `computed value` 相同，都是无单位的数值。
 
 `computed value` 的主要用途就是用于 `继承`。
 
@@ -41,13 +43,16 @@ tags: ['css']
 1. 通过 `cascading, inheritance, or the default` 得到 `specified value`；
 2. 根据 `规范(specification)` 得到 `computed value`；
 3. `post-layout(布局之后)` 得到 `used value`；
-4. 根据运行环境的限制得到 `actual value`；
+4. 根据运行环境的限制，然后近似计算后得到 `actual value`；
 
 ## actual value
 
-<!-- TODO: stop writing here -->
+一个 CSS 属性的 `actual value` 是 `used value` 根据实际运行的本地环境来改变后的近似值。比如，一个用户代理可能只能够渲染整数像素值的边框，因此边框的 `width used value` 要被近似估算。
 
 ## References
 
+- [w3c css2.1](https://www.w3.org/TR/CSS2/cascade.html#value-stages)
 - [MDN specified value](https://developer.mozilla.org/en-US/docs/Web/CSS/specified_value)
 - [MDN computed value](https://developer.mozilla.org/en-US/docs/Web/CSS/computed_value)
+- [MDN used value](https://developer.mozilla.org/en-US/docs/Web/CSS/used_value)
+- [MDN actual value](https://developer.mozilla.org/en-US/docs/Web/CSS/actual_value)
