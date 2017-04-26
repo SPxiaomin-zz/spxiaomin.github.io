@@ -1,0 +1,939 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,Bootstrap," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="!!! 未完成
+
+Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases.Bootstrap 包含一个响应式的，移动设备优先的流体网格系统，包含12列，并且随着">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解のBootstrap3-网格系统">
+<meta property="og:url" content="http://yoursite.com/2016/12/20/深入理解のBootstrap3-网格系统/index.html">
+<meta property="og:site_name" content="SPxiaomin的博客">
+<meta property="og:description" content="!!! 未完成
+
+Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases.Bootstrap 包含一个响应式的，移动设备优先的流体网格系统，包含12列，并且随着">
+<meta property="og:updated_time" content="2017-02-27T23:47:29.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解のBootstrap3-网格系统">
+<meta name="twitter:description" content="!!! 未完成
+
+Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases.Bootstrap 包含一个响应式的，移动设备优先的流体网格系统，包含12列，并且随着">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/20/深入理解のBootstrap3-网格系统/"/>
+
+
+
+
+
+  <title> 深入理解のBootstrap3-网格系统 | SPxiaomin的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1cdad6318fb6d8e9099a0592f701911";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SPxiaomin的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">进步，成长</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/20/深入理解のBootstrap3-网格系统/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SPxiaomin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SPxiaomin的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SPxiaomin的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                深入理解のBootstrap3-网格系统
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-20T18:52:55+08:00">
+                2016-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/20/深入理解のBootstrap3-网格系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/20/深入理解のBootstrap3-网格系统/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/20/深入理解のBootstrap3-网格系统/" class="leancloud_visitors" data-flag-title="深入理解のBootstrap3-网格系统">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>!!! 未完成</p>
+<blockquote>
+<p>Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases.<br>Bootstrap 包含一个响应式的，移动设备优先的流体网格系统，包含12列，并且随着设备或者视口的尺寸不断增加每一列的宽度。</p>
+</blockquote>
+<h3 id="网格系统-基础知识简介"><a href="#网格系统-基础知识简介" class="headerlink" title="网格系统-基础知识简介"></a>网格系统-基础知识简介</h3><!-- TODO: 画出线状图出来理解、查一下有什么线状图工具 -->
+<blockquote>
+<p><code>*</code> 代表的是占用的网格数量，Bootstrap 中一行的网格数量默认最多是 12 个。</p>
+</blockquote>
+<p>使用网格系统，首先需要注意视口的3个断点——768px、992px、1200px</p>
+<h4 id="css-权重基础知识简介"><a href="#css-权重基础知识简介" class="headerlink" title="css 权重基础知识简介"></a>css 权重基础知识简介</h4><p>css，英文全称cascading style sheet，层叠(cascading)一词就说明了css的核心——当多个选择器选择的是同一个元素的时候，如果样式规则存在冲突，就通过层叠规则来规定样式的覆盖，进而决定使用哪个样式规则。</p>
+<p>层叠规则简言之就是通过计算每个选择器权重的数值大小，进而权重值大的覆盖权重值小的，权重值相同就后面的覆盖前面的。当然这是不全面的，还要考虑来源、重要性等特殊情况，不过这里用不到，就不展开了。（这里有一篇关于权重的好文-<a href="http://www.jianshu.com/p/6f5d10343c28" target="_blank" rel="external">http://www.jianshu.com/p/6f5d10343c28</a>）</p>
+<!-- TODO: 日后通过css权威指南进行权重知识的完善 -->
+<p>这个特性也是Bootstrap网格系统的核心关键所在——当选择器的权重值相同的时候，后面的样式规则覆盖前面的样式规则。</p>
+<!-- TODO: stop writing here -->
+<p>Bootstrap 是移动设备优先的，因此在设置 <code>col-xs-*</code> 的样式的时候是没有使用媒体查询的，而是直接写样式的，其它的都是通过设置相应宽度的媒体查询实现 <code>@media (min-width: *) {}</code>。</p>
+<ul>
+<li><p>col-xs-*</p>
+<p>  xs即extra small，是为手机准备的网格类，也就是在视口 <code>&lt; 768px</code> 的时候应用的样式。</p>
+</li>
+<li><p>col-sm-*</p>
+<p>  sm即small，用在小尺寸屏幕上，比如说平板电脑，在视口 <code>&gt;= 768px</code> 的时候应用的样式。</p>
+</li>
+<li><p>col-md-*</p>
+<p>  md即middle，用在中等设备上，在视口 <code>&gt;= 992px</code> 的时候应用的样式。</p>
+</li>
+<li><p>col-lg-*</p>
+<p>  lg即large，用在大尺寸设备上，在视口 <code>&gt;= 1200</code> 的时候应用的样式。</p>
+</li>
+</ul>
+<h3 id="让页面居中显示的容器－-container"><a href="#让页面居中显示的容器－-container" class="headerlink" title="让页面居中显示的容器－.container"></a>让页面居中显示的容器－.container</h3><p>通过为元素多添加一个带有 <code>class=&quot;container&quot;</code> 的父元素，就可以实现让页面居中显示。</p>
+<p><code>.container</code> 的具体样式规则如下:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">    <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">    <span class="attribute">margin-left</span>: auto;</div><div class="line">    <span class="attribute">margin-right</span>: auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) &#123;</div><div class="line">    <span class="selector-class">.container</span> &#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">750px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">992px</span>) &#123;</div><div class="line">    <span class="selector-class">.container</span> &#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">970px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">1200px</span>) &#123;</div><div class="line">    <span class="selector-class">.container</span> &#123;</div><div class="line">        <span class="attribute">width</span>: <span class="number">1170px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从上面的样式就可以看出来，是通过 <code>css</code> 样式层叠特性 &amp; <code>media</code> 来实现在不同屏幕尺寸上使用不同的宽度。</p>
+<p>上面的样式规则中，先针对移动设备设置默认的样式规则，然后再通过使用媒体查询来根据屏幕不断增大的情况来设置样式，可以看出来采用了移动设备优先的思想。</p>
+<h3 id="网格类-amp-混合使用网格类"><a href="#网格类-amp-混合使用网格类" class="headerlink" title="网格类 &amp; 混合使用网格类"></a>网格类 &amp; 混合使用网格类</h3><p>网格类Bootstrap样式规则源码</p>
+<p>使用一个类——<code>.col-xs-6</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.col-xs-6</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.col-xs-6</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>混合使用网格类Bootstrap样式规则源码</p>
+<p>使用类——<code>.col-xs-6.col-sm-8</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.col-xs-6</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.col-xs-6</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.col-sm-8</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">66.66666667%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.col-sm-8</span> &#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实混合使用网格类布局的核心原则是——权重相同的样式规则，位置越靠后的覆盖位置靠前的。</p>
+<h3 id="内容列的顺序－push与pull"><a href="#内容列的顺序－push与pull" class="headerlink" title="内容列的顺序－push与pull"></a>内容列的顺序－push与pull</h3><p>在不改变代码结构的情况下，改变元素的左右显示位置。使用这个样式的目的是便于SEO搜索优化。</p>
+<p><code>push</code> 是向右推，<code>pull</code> 是向左拉。</p>
+<p>Bootstrap 使用的是以下方式实现效果 <code>position: relative;</code> &amp; push <code>left: *%</code> &amp; pull <code>right: *%</code></p>
+<!-- TODO: left 的百分比值也是相对父元素的宽度计算吗 -->
+<h3 id="嵌套的布局-nesting"><a href="#嵌套的布局-nesting" class="headerlink" title="嵌套的布局-nesting"></a>嵌套的布局-nesting</h3><p>嵌套布局简单来说，就是在 <code>.col-*-*</code> 中嵌套 <code>.col-*-*</code>，但是要注意将嵌套的 <code>.col-*-*</code> 包裹一层 <code>.row</code>。</p>
+<!-- TODO: 插入本子上的图——有无row，可以考虑用工具画 -->
+<p>但是容易造成如下的现象——</p>
+<!-- TODO: 插入图片 -->
+<p>产生了混排的现象。</p>
+<p>解决方案有两种——</p>
+<ol>
+<li>分别放在单独的一个 <code>row</code>;</li>
+<li>增加一个无语义的 <code>div.clearfix</code>，来修复元素的浮动问题。</li>
+</ol>
+<h3 id="偏移的空间-offset"><a href="#偏移的空间-offset" class="headerlink" title="偏移的空间-offset"></a>偏移的空间-offset</h3><!-- TODO: 正则表达式1-12的符号怎么表示 -->
+<p>使用 <code>.col-(xs|sm|md|lg)-offset-[1-12]</code> 对元素进行水平方向的偏移。</p>
+<p>Bootstrap 实现的方式是借助 <code>margin-left</code> 进行偏移的，这里其实是借助了 <code>margin</code> 的百分比值是相对于宽度计算的特性。</p>
+<h3 id="隐藏与显示的响应式工具类"><a href="#隐藏与显示的响应式工具类" class="headerlink" title="隐藏与显示的响应式工具类"></a>隐藏与显示的响应式工具类</h3><p><code>visible-(xs|sm|md|lg)</code> 表示分别在不同尺寸的设备上进行显示。</p>
+<p><code>hidden-(xs|sm|md|lg)</code> 表示分别在不同尺寸的设备上进行隐藏。</p>
+<p>上面的样式规则已经被弃用了，虽然现在还在支持，</p>
+<p><code>visible|hidden-xs|sm|md|lg-block|inline|inline-block</code></p>
+<p>Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any .col-md-<em> class to an element will not only affect its styling on medium devices but also on large devices if a .col-lg-</em> class is not present.</p>
+<p>Horizontal at all times    Collapsed to start, horizontal above breakpoints</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/Bootstrap/" rel="tag"># Bootstrap</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/20/css避免margin穿透的方式/" rel="next" title="css避免margin穿透的方式">
+                <i class="fa fa-chevron-left"></i> css避免margin穿透的方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/25/茄果大大自适应布局の盗版/" rel="prev" title="茄果大大自适应布局の盗版">
+                茄果大大自适应布局の盗版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/20/深入理解のBootstrap3-网格系统/"
+           data-title="深入理解のBootstrap3-网格系统" data-url="http://yoursite.com/2016/12/20/深入理解のBootstrap3-网格系统/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="SPxiaomin" />
+          <p class="site-author-name" itemprop="name">SPxiaomin</p>
+          <p class="site-description motion-element" itemprop="description">IT小处男, 学生</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#网格系统-基础知识简介"><span class="nav-number">1.</span> <span class="nav-text">网格系统-基础知识简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#css-权重基础知识简介"><span class="nav-number">1.1.</span> <span class="nav-text">css 权重基础知识简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#让页面居中显示的容器－-container"><span class="nav-number">2.</span> <span class="nav-text">让页面居中显示的容器－.container</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网格类-amp-混合使用网格类"><span class="nav-number">3.</span> <span class="nav-text">网格类 & 混合使用网格类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容列的顺序－push与pull"><span class="nav-number">4.</span> <span class="nav-text">内容列的顺序－push与pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套的布局-nesting"><span class="nav-number">5.</span> <span class="nav-text">嵌套的布局-nesting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏移的空间-offset"><span class="nav-number">6.</span> <span class="nav-text">偏移的空间-offset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏与显示的响应式工具类"><span class="nav-number">7.</span> <span class="nav-text">隐藏与显示的响应式工具类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SPxiaomin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"spxiaomin"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("qQ982NfhhDtSmvpPQxwkEDyv-gzGzoHsz", "QM7yioAselqEgsEiac4gEwnE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
