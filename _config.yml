@@ -72,5 +72,5 @@ deploy:
   type: git
   repo: git@github.com:SPxiaomin/spxiaomin.github.io.git
 
-duoshuo_shortname: spxiaomin
+# duoshuo_shortname: spxiaomin
 baidu_analytics: f1cdad6318fb6d8e9099a0592f701911
