@@ -90,10 +90,11 @@
 
 images 文件夹用来存放将要用到的图片。
 styles 文件夹用来存放 CSS 样式表。
-  主要分为3种样式表：
+主要分为3种样式表：
 
 全局样式；
-可大范围重用的样式；">
+可大范围重用的样式；
+细">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html/css + jQuery 的开发套路">
 <meta property="og:url" content="http://yoursite.com/2017/04/13/html-css-jQuery-的开发套路/index.html">
@@ -104,11 +105,12 @@ styles 文件夹用来存放 CSS 样式表。
 
 images 文件夹用来存放将要用到的图片。
 styles 文件夹用来存放 CSS 样式表。
-  主要分为3种样式表：
+主要分为3种样式表：
 
 全局样式；
-可大范围重用的样式；">
-<meta property="og:updated_time" content="2017-04-28T04:58:03.327Z">
+可大范围重用的样式；
+细">
+<meta property="og:updated_time" content="2017-06-05T02:32:33.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html/css + jQuery 的开发套路">
 <meta name="twitter:description" content="了解整个项目的背景比如面向的客户群是年轻的一代，那么网站应该给人一种很时尚的感觉。
@@ -117,10 +119,11 @@ styles 文件夹用来存放 CSS 样式表。
 
 images 文件夹用来存放将要用到的图片。
 styles 文件夹用来存放 CSS 样式表。
-  主要分为3种样式表：
+主要分为3种样式表：
 
 全局样式；
-可大范围重用的样式；">
+可大范围重用的样式；
+细">
 
 
 
@@ -432,37 +435,37 @@ styles 文件夹用来存放 CSS 样式表。
 <ul>
 <li>images 文件夹用来存放将要用到的图片。</li>
 <li><p>styles 文件夹用来存放 CSS 样式表。</p>
-<p>  主要分为3种样式表：</p>
+<p>主要分为3种样式表：</p>
 <ul>
 <li>全局样式；</li>
 <li>可大范围重用的样式；</li>
-<li><p>细节方面的样式；</p>
-<p>上面的3种样式表，其实也是按link标签引入的顺序写的，根据 CSS 的最近优先原则，可以很容易地对网站进行从整体到细节样式的定义。</p>
-</li>
+<li>细节方面的样式；</li>
 </ul>
+<p>上面的3种样式表，其实也是按link标签引入的顺序写的，根据 CSS 的<strong>最近优先原则</strong>，可以很容易地对网站进行从整体到细节样式的定义。</p>
 </li>
 <li><p>scripts 文件夹用来存放 jQuery 脚本。</p>
 </li>
 </ul>
-<h3 id="开始编码"><a href="#开始编码" class="headerlink" title="开始编码"></a>开始编码</h3><p>下面的递归编码方式:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (还能够拆分布局？) &#123;</div><div class="line">    写好布局html和布局样式；</div><div class="line">&#125;</div><div class="line">编写html&amp;css；</div></pre></td></tr></table></figure>
+<h3 id="开始编码"><a href="#开始编码" class="headerlink" title="开始编码"></a>开始编码</h3><p>递归编码方式:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (还能够拆分布局？) &#123;</div><div class="line">  写好布局html和布局样式；</div><div class="line">&#125;</div><div class="line">编写html&amp;css；</div></pre></td></tr></table></figure>
 <h4 id="通用编码"><a href="#通用编码" class="headerlink" title="通用编码"></a>通用编码</h4><ol>
 <li><p>写好全局样式。</p>
 </li>
 <li><p>简单分析一下所有页面设计稿的布局方式和模块拆分，<strong>将复用部分抽离出来</strong>，然后写好主要的html代码结构(和具体页面有关的部分不管，比如说如下的 <code>#content</code> 中的内容)，并且通过样式布好局；但是有一点要注意的是，具体页面的布局部分写具体页面的时候再说，这一步暂时不管。</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"nav"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>然后分块写复用样式；</p>
-<p> 通过上一步确定复用部分，然后编写复用部分的 html &amp; css；</p>
-<p> 每一块的编写方式：</p>
+<li><p>然后分块写复用样式:</p>
+<p>每一块的编写方式：</p>
 <ul>
-<li>递归——写好布局 html 代码和布局样式，然后分块编写 html、css；</li>
+<li>使用上面的递归编码；</li>
 <li><p>写完了一块之后，如果有交互的话，就将交互写好；</p>
-<p>  写交互的方式：</p>
+<p>之所以交互和html/css一起写，而不是先写完了整个页面的html/css的原因在于，这两块是有关联的——不同的页面布局方式，交互编写代码就不同。</p>
+<p>写交互的方式：</p>
 <ul>
-<li>根据情景分析需求，需要实现什么样的效果？</li>
-<li><p>有什么样的方式能够实现这样的效果？哪一种方式更好？</p>
-<p>  明确实现的每一步步骤。</p>
+<li><p>根据情景分析需求，需要实现什么样的效果？</p>
+<p>还有就是，如果要实现一个效果，但是不是很容易，这个时候可以借助于插件，插件也是 jQuery 的特色之一。</p>
+</li>
+<li><p>然后使用文字描述好实现的步骤(在什么元素上发生什么事件，然后做什么响应)，最后翻译成代码。</p>
 </li>
 </ul>
 </li>
@@ -472,18 +475,20 @@ styles 文件夹用来存放 CSS 样式表。
 <h4 id="具体页面编码"><a href="#具体页面编码" class="headerlink" title="具体页面编码"></a>具体页面编码</h4><ol>
 <li><p>开始具体页面编码，分析好整个页面的布局方式和模块拆分，然后写好大块的容器 html 代码结构，并且通过样式布好局；</p>
 </li>
-<li><p>然后开始分块编写——写html，然后写css；写完了html和css之后，就进行相应块的交互编写；</p>
-<p> 之所以交互和html/css一起写，而不是先写完了整个页面的html/css的原因在于，这两块是有关联的——不同的页面布局方式，交互编写代码就不同。</p>
-<p> 还有就是，如果要实现一个效果，但是不是很容易，这个时候可以借助于插件，插件也是 jQuery 的特色之一。</p>
-<p> 每一块的编写方式：</p>
+<li><p>然后分块写:</p>
+<p>每一块的编写方式：</p>
 <ul>
-<li><p>递归——写好布局 html 代码和布局样式，然后分块编写 html、css；</p>
-<p>写交互的方式:</p>
-</li>
+<li>使用上面的递归编码；</li>
+<li><p>写完了一块之后，如果有交互的话，就将交互写好；</p>
+<p>之所以交互和html/css一起写，而不是先写完了整个页面的html/css的原因在于，这两块是有关联的——不同的页面布局方式，交互编写代码就不同。</p>
+<p>写交互的方式：</p>
+<ul>
 <li><p>根据情景分析需求，需要实现什么样的效果？</p>
+<p>还有就是，如果要实现一个效果，但是不是很容易，这个时候可以借助于插件，插件也是 jQuery 的特色之一。</p>
 </li>
-<li><p>有什么样的方式能够实现这样的效果？哪一种方式更好？</p>
-<p>  明确实现的每一步步骤。</p>
+<li><p>然后使用文字描述好实现的步骤(在什么元素上发生什么事件，然后做什么响应)，最后翻译成代码。</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -606,7 +611,7 @@ styles 文件夹用来存放 CSS 样式表。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
