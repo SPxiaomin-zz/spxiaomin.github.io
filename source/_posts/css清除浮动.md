@@ -17,7 +17,11 @@ tags: ['css', '浮动']
 
 ## 通过 `::after` & `clear`
 
+{% codepen spxiaomin ZyYpdx 0 css 265 %}
 
+## 通过 `div.clearfix`
+
+{% codepen spxiaomin qjEqWv 0 css 265 %}
 
 <br>
 END.
