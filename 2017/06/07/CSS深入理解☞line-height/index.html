@@ -1,0 +1,1008 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="line-height的定义line-height，行高，两行文字基线之间的距离。
+
+什么是基线？学习英语的时候，英语本子上的红线，那条红线就是这里的基线。
+
+或者可以说是微软雅黑字体中字母 x 下边缘的位置。
+
+如果是其他的字体的话，那就不一定是字母 x 下边缘的位置。
+
+line-height与行内框盒子模型行内框盒子模型是非常重要的一个东西，因为所有内联元素的样式表现都与行内框盒子模型有关！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS深入理解☞line-height">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/index.html">
+<meta property="og:site_name" content="SPxiaomin的博客">
+<meta property="og:description" content="line-height的定义line-height，行高，两行文字基线之间的距离。
+
+什么是基线？学习英语的时候，英语本子上的红线，那条红线就是这里的基线。
+
+或者可以说是微软雅黑字体中字母 x 下边缘的位置。
+
+如果是其他的字体的话，那就不一定是字母 x 下边缘的位置。
+
+line-height与行内框盒子模型行内框盒子模型是非常重要的一个东西，因为所有内联元素的样式表现都与行内框盒子模型有关！">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/line-height_baseline.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/baseline.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/x-baseline.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/baseline_font.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/inline-box-model.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/content-area.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/inline-boxes.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/line-boxes.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/containing-box.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/behind.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/content-area-height.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/content-area-example1.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/content-area-example2.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/line-height_hidden-text.png">
+<meta property="og:updated_time" content="2017-06-08T09:59:36.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS深入理解☞line-height">
+<meta name="twitter:description" content="line-height的定义line-height，行高，两行文字基线之间的距离。
+
+什么是基线？学习英语的时候，英语本子上的红线，那条红线就是这里的基线。
+
+或者可以说是微软雅黑字体中字母 x 下边缘的位置。
+
+如果是其他的字体的话，那就不一定是字母 x 下边缘的位置。
+
+line-height与行内框盒子模型行内框盒子模型是非常重要的一个东西，因为所有内联元素的样式表现都与行内框盒子模型有关！">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/line-height_baseline.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/"/>
+
+
+
+
+
+  <title> CSS深入理解☞line-height | SPxiaomin的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1cdad6318fb6d8e9099a0592f701911";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">SPxiaomin的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">进步，成长</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/07/CSS深入理解☞line-height/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="SPxiaomin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="SPxiaomin的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="SPxiaomin的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS深入理解☞line-height
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-07T16:13:17+08:00">
+                2017-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/07/CSS深入理解☞line-height/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/07/CSS深入理解☞line-height/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/06/07/CSS深入理解☞line-height/" class="leancloud_visitors" data-flag-title="CSS深入理解☞line-height">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="line-height的定义"><a href="#line-height的定义" class="headerlink" title="line-height的定义"></a>line-height的定义</h2><p>line-height，行高，两行文字基线之间的距离。</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/line-height_baseline.png" alt="line-height与基线的关系" title="line-height与基线的关系">
+<h3 id="什么是基线？"><a href="#什么是基线？" class="headerlink" title="什么是基线？"></a>什么是基线？</h3><p>学习英语的时候，英语本子上的红线，那条红线就是这里的基线。</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/baseline.png" alt="英语本中的基线" title="英语本中的基线">
+<p>或者可以说是微软雅黑字体中字母 <strong>x</strong> 下边缘的位置。</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/x-baseline.png" alt="基线可以说是微软雅黑字体中字母x的下边缘" title="基线可以说是微软雅黑字体中字母x的下边缘">
+<p>如果是其他的字体的话，那就不一定是字母 <strong>x</strong> 下边缘的位置。</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/baseline_font.png" alt="基线的具体位置和字体也是有关系的" title="基线的具体位置和字体也是有关系的">
+<h2 id="line-height与行内框盒子模型"><a href="#line-height与行内框盒子模型" class="headerlink" title="line-height与行内框盒子模型"></a>line-height与行内框盒子模型</h2><p>行内框盒子模型是非常重要的一个东西，因为所有内联元素的样式表现都与行内框盒子模型有关！！！</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/inline-box-model.png" alt="一个包含4种盒子的例子" title="一个包含4种盒子的例子">
+<p>总共四种盒子:</p>
+<ol>
+<li>内容区域(content area)；</li>
+<li>内联盒子(inline boxes)；</li>
+<li>行框盒子(line boxes)；</li>
+<li>包含盒子(containing box)；</li>
+</ol>
+<p>其中4包含3，3包含2，2和1的关系说不清。</p>
+<h3 id="4种盒子"><a href="#4种盒子" class="headerlink" title="4种盒子"></a>4种盒子</h3><ol>
+<li><p>“内容区域” (content area)，是一种围绕文字看不见的盒子。”内容区域” (content area)的大小与 <code>font-size</code> 大小相关，与 <code>line-height</code> 无关。</p>
+<p>那么既然看不见，我们还怎么学习呢？张大大将其理解为选中文字时候的区域就是 “内容区域”。</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/content-area.png" alt="内容区域" title="内容区域">
+</li>
+<li><p>“内联盒子” (inline boxes)</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/inline-boxes.png" alt="内联盒子" title="内联盒子">
+</li>
+<li><p>“行框盒子” (line boxes)</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/line-boxes.png" alt="行框盒子" title="行框盒子">
+<p>上面图片中的 <code>p</code> 元素，如果其中有一个 <code>&lt;br&gt;</code> 换行或者是当前行容纳不了这么多文字，那么就会换行，这个时候就有两个 <code>line box</code> 了。</p>
+<p>上面的行框盒子包括了三个 “内联盒子” (inline boxes)。</p>
+</li>
+<li><p>“包含盒子” (containing box)</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/containing-box.png" alt="包含盒子" title="包含盒子">
+</li>
+</ol>
+<h2 id="line-height的高度机理"><a href="#line-height的高度机理" class="headerlink" title="line-height的高度机理"></a>line-height的高度机理</h2><p>内联元素的高度是由 <strong>line-height</strong> 决定的。不是由字体撑开的。</p>
+<iframe id="cp_embed_bRVojB" src="//codepen.io/SPxiaomin/embed/bRVojB?height=265&theme-id=0&slug-hash=bRVojB&default-tab=result" scrolling="no" frameborder="no" height="265" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>但是有一点是要注意的，内联元素的高度是由 <strong>line-height</strong> 决定的，但是就算line-height的值为0，也不会改变字体的基线位置，它只是改变了两行文字基线之间的距离&amp;内联元素的高度而已。</p>
+<iframe id="cp_embed_zzvppN" src="//codepen.io/SPxiaomin/embed/zzvppN?height=265&theme-id=0&slug-hash=zzvppN&default-tab=result" scrolling="no" frameborder="no" height="265" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>这个时候问题就来了——line-height明明是两行文字基线距离，单行文字哪来行高，都没有两个基线，还控制了高度？其实啊：</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/behind.png" alt="高度的真正表现" title="高度的真正表现">
+<p>也就是说只不过刚好如下的公式成立：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">内容区域高度(content area) + 行间距(vertical spacing) = 行高(line-height)</div></pre></td></tr></table></figure>
+<p>行间距在内容区域的上下进行均分，因此就有了 “半行间距”。简言之，行间距墙头草，可大可小(甚至负值)，保证高度正好等同于行高。</p>
+<h3 id="内容区域-content-area"><a href="#内容区域-content-area" class="headerlink" title="内容区域(content area)"></a>内容区域(content area)</h3><p>关于 “内容区域” (content area) 的讲解如下图：</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/content-area-height.png" alt="内容区域(content area)高度的决定因素" title="内容区域(content area)高度的决定因素">
+<p>看两个关于 “内容区域” (content area) 的例子：</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/content-area-example1.png" alt="内容区域(content area)示例1" title="内容区域(content area)示例1">
+<img src="/2017/06/07/CSS深入理解☞line-height/content-area-example2.png" alt="内容区域(content area)示例2" title="内容区域(content area)示例2">
+<h3 id="行框盒子的高度与内联盒子高度的关系"><a href="#行框盒子的高度与内联盒子高度的关系" class="headerlink" title="行框盒子的高度与内联盒子高度的关系"></a>行框盒子的高度与内联盒子高度的关系</h3><p>如果行框盒子(line box)里面有多个不同行高的内联盒子，那么高度表现会是什么样？是由行高最高的那个内联盒子决定吗？</p>
+<p>答案是似是而非。看下面的例子就知道了：</p>
+<iframe id="cp_embed_GEpQrV" src="//codepen.io/SPxiaomin/embed/GEpQrV?height=265&theme-id=0&slug-hash=GEpQrV&default-tab=result" scrolling="no" frameborder="no" height="265" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<h3 id="包含盒子-containing-box"><a href="#包含盒子-containing-box" class="headerlink" title="包含盒子(containing box)"></a>包含盒子(containing box)</h3><p>含多个行框盒子的包含容器的高度，多行文本的高度就是单行文本高度累加。</p>
+<h2 id="line-height各类属性值"><a href="#line-height各类属性值" class="headerlink" title="line-height各类属性值"></a>line-height各类属性值</h2><h3 id="normal"><a href="#normal" class="headerlink" title="normal"></a>normal</h3><p>默认属性值。跟着用户的浏览器走，且与元素字体关联。</p>
+<p>由于初始值 normal 在不同的浏览器中，表现都是不一致的，具有非常的不确定性，所以实际开发的时候一般会在 body 进行全局设置，保证各个浏览器一致。</p>
+<h3 id="lt-number-gt"><a href="#lt-number-gt" class="headerlink" title="&lt;number&gt;"></a><code>&lt;number&gt;</code></h3><p>使用数值作为行高值，例如 <code>line-height: 1.5;</code>。</p>
+<p>根据 <strong>当前元素</strong> 的font-size大小计算。</p>
+<h3 id="lt-length-gt"><a href="#lt-length-gt" class="headerlink" title="&lt;length&gt;"></a><code>&lt;length&gt;</code></h3><p>使用具体长度值作为行高值，例如 <code>line-height: 1.5em;</code>(相对单位) or <code>line-height: 15px</code>(固定单位)。</p>
+<p>如果是相对单位的话，是相对于 <strong>设置了该line-height属性的元素</strong> 的font-size大小计算。</p>
+<h3 id="lt-percent-gt"><a href="#lt-percent-gt" class="headerlink" title="&lt;percent&gt;"></a><code>&lt;percent&gt;</code></h3><p>使用百分比值作为行高值。例如 <code>line-height: 150%;</code>。</p>
+<p>相对于 <strong>设置了该line-height属性的元素</strong> 的font-size大小计算。</p>
+<h3 id="inherit"><a href="#inherit" class="headerlink" title="inherit"></a>inherit</h3><p>行高继承。</p>
+<p>input框等元素默认行高是normal，使用inherit可以让文本框样式可控性更强。</p>
+<h3 id="来个对比吧！"><a href="#来个对比吧！" class="headerlink" title="来个对比吧！"></a>来个对比吧！</h3><p>line-height: 1.5，line-height: 150%，line-height: 1.5em，三者有什么区别？</p>
+<p>如果从计算上面来讲是没有什么差别的，假设设置了该line-height属性的元素的font-size:20px，那么都计算出来30px。那么差别在什么地方呢？</p>
+<ol>
+<li><code>line-height: 1.5</code> 所有可继承元素根据font-size重计算高度；</li>
+<li><code>line-height: 150%/1.5em</code> 当前元素根据font-size计算行高，继承给下面的元素；</li>
+</ol>
+<h2 id="line-height与图片的表现"><a href="#line-height与图片的表现" class="headerlink" title="line-height与图片的表现"></a>line-height与图片的表现</h2><p>行高 <strong>不会</strong> 影响图片实际占据的高度！！！实际上line-height改变的是文字的高度，然后基线对齐，就产生了空隙。简单就是说 line-height&amp;vertical-align 共同起了作用，图片所占据的高度还是它原本的高度。</p>
+<p>因为inline水平元素默认 <code>vertical-align: baseline</code>，也就是基线对齐，所以图片和包含盒子之间会有空隙。</p>
+<p>但是后面没有文字呀？是什么情况？其实呢，存在看不见的隐匿文本节点，其实在规范当中是称为 <code>strut</code>。</p>
+<img src="/2017/06/07/CSS深入理解☞line-height/line-height_hidden-text.png" alt="隐匿文本节点" title="隐匿文本节点">
+<h3 id="如何消除图片底部间隙？"><a href="#如何消除图片底部间隙？" class="headerlink" title="如何消除图片底部间隙？"></a>如何消除图片底部间隙？</h3><ol>
+<li><p>图片块状化 — 无基线对齐</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span> &#123;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为 <code>vertical-align</code> 属性只是适用于 <code>inline</code> or <code>inline-block</code> 的元素，所以就没有什么基线对齐的情况，进而也就没有了间隙的问题。</p>
+</li>
+<li><p>图片底线对齐</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span> &#123;</div><div class="line">  <span class="attribute">vertical-align</span>: bottom;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>行高足够小</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="line-height-的应用"><a href="#line-height-的应用" class="headerlink" title="line-height 的应用"></a>line-height 的应用</h2><h3 id="单行文本垂直居中"><a href="#单行文本垂直居中" class="headerlink" title="单行文本垂直居中"></a>单行文本垂直居中</h3><p>END.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/06/CSS-absolute的位置跟随特性-应用/" rel="next" title="CSS absolute的位置跟随特性&应用">
+                <i class="fa fa-chevron-left"></i> CSS absolute的位置跟随特性&应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="SPxiaomin" />
+          <p class="site-author-name" itemprop="name">SPxiaomin</p>
+          <p class="site-description motion-element" itemprop="description">IT小处男, 学生</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.github.com/SPxiaomin" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height的定义"><span class="nav-number">1.</span> <span class="nav-text">line-height的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是基线？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是基线？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height与行内框盒子模型"><span class="nav-number">2.</span> <span class="nav-text">line-height与行内框盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4种盒子"><span class="nav-number">2.1.</span> <span class="nav-text">4种盒子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height的高度机理"><span class="nav-number">3.</span> <span class="nav-text">line-height的高度机理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内容区域-content-area"><span class="nav-number">3.1.</span> <span class="nav-text">内容区域(content area)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行框盒子的高度与内联盒子高度的关系"><span class="nav-number">3.2.</span> <span class="nav-text">行框盒子的高度与内联盒子高度的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包含盒子-containing-box"><span class="nav-number">3.3.</span> <span class="nav-text">包含盒子(containing box)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height各类属性值"><span class="nav-number">4.</span> <span class="nav-text">line-height各类属性值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#normal"><span class="nav-number">4.1.</span> <span class="nav-text">normal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-number-gt"><span class="nav-number">4.2.</span> <span class="nav-text"><number></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-length-gt"><span class="nav-number">4.3.</span> <span class="nav-text"><length></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-percent-gt"><span class="nav-number">4.4.</span> <span class="nav-text"><percent></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inherit"><span class="nav-number">4.5.</span> <span class="nav-text">inherit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#来个对比吧！"><span class="nav-number">4.6.</span> <span class="nav-text">来个对比吧！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height与图片的表现"><span class="nav-number">5.</span> <span class="nav-text">line-height与图片的表现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何消除图片底部间隙？"><span class="nav-number">5.1.</span> <span class="nav-text">如何消除图片底部间隙？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-height-的应用"><span class="nav-number">6.</span> <span class="nav-text">line-height 的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单行文本垂直居中"><span class="nav-number">6.1.</span> <span class="nav-text">单行文本垂直居中</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SPxiaomin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'httpspxiaomingithubio';
+      var disqus_identifier = '2017/06/07/CSS深入理解☞line-height/';
+
+      var disqus_title = "CSS深入理解☞line-height";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("qQ982NfhhDtSmvpPQxwkEDyv-gzGzoHsz", "QM7yioAselqEgsEiac4gEwnE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
