@@ -1321,9 +1321,9 @@ END.
 
       
         
-          
-          
-          
+          <p>在JavaScript的世界中，所有代码都是单线程执行的。由于这个 “缺陷”， 导致JavaScript的所有网络操作、浏览器事件，都必须是异步执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Done'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'before setTimeout()'</span>);</div><div class="line">setTimeout(callback, <span class="number">1000</span>); <span class="comment">// 一秒钟后调用callback函数</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'after setTimeout()'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 控制台输出结果</span></div><div class="line">before setTimeout()</div><div class="line">after setTimeout()</div><div class="line">(等待<span class="number">1</span>秒后)</div><div class="line">Done</div></pre></td></tr></table></figure>
+<p>可见，异步操作会在将来的某个时间点触发一个函数调用。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/05/21/JavaScript异步编程之Promise/#more" rel="contents">
