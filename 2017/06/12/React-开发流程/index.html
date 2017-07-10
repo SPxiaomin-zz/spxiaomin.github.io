@@ -117,7 +117,12 @@ webpack
 es6 &amp;amp; react
 123npm i -D babel-core babel-loader babel-polyfill babel-p reset-env babel-pre">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/directory.png">
-<meta property="og:updated_time" content="2017-07-01T11:20:57.947Z">
+<meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/webpack.config.js-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/webpack.config.js-2.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/webpack.config.js-3.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/babelrc.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/step-1.png">
+<meta property="og:updated_time" content="2017-07-10T14:33:59.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 开发流程">
 <meta name="twitter:description" content="准备工作
@@ -453,7 +458,7 @@ es6 &amp;amp; react
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D webpack webpack-dev-server</div></pre></td></tr></table></figure>
 </li>
 <li><p>es6 &amp; react</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm i -D babel-core babel-loader babel-polyfill babel-p reset-env babel-preset-react react-hot-loader</div><div class="line"></div><div class="line">npm i -S react react-dom</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm i -D babel-core babel-loader babel-polyfill babel-p reset-env babel-preset-react react-hot-loader@next</div><div class="line"></div><div class="line">npm i -S react react-dom</div></pre></td></tr></table></figure>
 </li>
 <li><p>css</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D css-loader style-loader sass-loader node-sass</div></pre></td></tr></table></figure>
@@ -462,21 +467,29 @@ es6 &amp;amp; react
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -D html-webpack-plugin</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>配置 webpack.config.js &amp; .babelrc</p>
+<img src="/2017/06/12/React-开发流程/webpack.config.js-1.png" alt="webpack.config.js-1" title="webpack.config.js-1">
+<img src="/2017/06/12/React-开发流程/webpack.config.js-2.png" alt="webpack.config.js-2" title="webpack.config.js-2">
+<img src="/2017/06/12/React-开发流程/webpack.config.js-3.png" alt="webpack.config.js-3" title="webpack.config.js-3">
+<img src="/2017/06/12/React-开发流程/babelrc.png" alt=".babelrc.png" title=".babelrc.png">
 </li>
-<li><p>编写 Hello World! 运行示例。</p>
+<li><p>编写 package.json scripts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;build&quot;: &quot;webpack&quot;,</div><div class="line">  &quot;dev&quot;: &quot;webpack-dev-server --hot --progress --history-api-fallback --open&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>编写 Hello World! 运行示例，测试能够正常运行＆hot load是否正常运行。</p>
 </li>
 </ol>
-<p>###</p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><h3 id="文件内容顺序"><a href="#文件内容顺序" class="headerlink" title="文件内容顺序"></a>文件内容顺序</h3><ol>
+<h2 id="实际编码"><a href="#实际编码" class="headerlink" title="实际编码"></a>实际编码</h2><h3 id="文件内容顺序"><a href="#文件内容顺序" class="headerlink" title="文件内容顺序"></a>文件内容顺序</h3><ol>
 <li>导入 node_modules 中的内容；</li>
 <li>导入 css；</li>
 <li>导入 自定义组件；</li>
 <li>导入自定义的一些东西，比如 utils；</li>
 </ol>
-<h2 id="实际编码"><a href="#实际编码" class="headerlink" title="实际编码"></a>实际编码</h2><h3 id="Break-The-UI-Into-A-Component-Hierarchy"><a href="#Break-The-UI-Into-A-Component-Hierarchy" class="headerlink" title="Break The UI Into A Component Hierarchy"></a>Break The UI Into A Component Hierarchy</h3><blockquote>
+<h3 id="Break-The-UI-Into-A-Component-Hierarchy"><a href="#Break-The-UI-Into-A-Component-Hierarchy" class="headerlink" title="Break The UI Into A Component Hierarchy"></a>Break The UI Into A Component Hierarchy</h3><blockquote>
 <p>依据单一职责原理进行划分组件，也就是，一个组件理想状态下应该仅仅只做一件事。</p>
 </blockquote>
-<p>分好组件，命好名称。</p>
+<p>分好组件，命好名称。并在components目录下建立好相应的目录＆文件。</p>
+<img src="/2017/06/12/React-开发流程/step-1.png" alt="第一步" title="第一步">
 <h3 id="写组件-静态数据"><a href="#写组件-静态数据" class="headerlink" title="写组件(静态数据)"></a>写组件(静态数据)</h3><ol>
 <li><p>全部组件单独写，填充假数据。</p>
 </li>
@@ -497,15 +510,7 @@ es6 &amp;amp; react
 <li>If you can’t find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.</li>
 </ol>
 <p>Cool, so we’ve decided that our state lives in FilterableProductTable. First, add an instance property this.state = {filterText: ‘’, inStockOnly: false} to FilterableProductTable’s constructor to reflect the initial state of your application. Then, pass filterText and inStockOnly to ProductTable and SearchBar as a prop. Finally, use these props to filter the rows in ProductTable and set the values of the form fields in SearchBar.</p>
-<h3 id="写交互"><a href="#写交互" class="headerlink" title="写交互"></a>写交互</h3><h3 id="从后端拉取数据"><a href="#从后端拉取数据" class="headerlink" title="从后端拉取数据"></a>从后端拉取数据</h3><hr>
-<hr>
-<h1 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h1><p>npm init –yes</p>
-<p>npm i -g webpack webpack-dev-server</p>
-<h2 id="安装配置-Babel"><a href="#安装配置-Babel" class="headerlink" title="安装配置 Babel"></a>安装配置 Babel</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm i --save-dev babel-core babel-loader</div><div class="line">$ npm i --save-dev babel-preset-es2015 babel-preset-react</div></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"react"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="安装配置-ESLint"><a href="#安装配置-ESLint" class="headerlink" title="安装配置 ESLint"></a>安装配置 ESLint</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm i --save-dev eslint eslint-loader</div><div class="line">$ npm i --save-dev eslint-plugin-import eslint-plugin-react eslint-plugin-jsx<span class="_">-a</span>11y</div><div class="line">$ npm i --save-dev eslint-config-airbnb</div></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"extends"</span>: <span class="string">"airbnb"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<h3 id="写交互"><a href="#写交互" class="headerlink" title="写交互"></a>写交互</h3><h3 id="从后端拉取数据"><a href="#从后端拉取数据" class="headerlink" title="从后端拉取数据"></a>从后端拉取数据</h3>
       
     </div>
 
@@ -690,7 +695,7 @@ es6 &amp;amp; react
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">1.1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件内容顺序"><span class="nav-number">1.2.</span> <span class="nav-text">文件内容顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际编码"><span class="nav-number">2.</span> <span class="nav-text">实际编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Break-The-UI-Into-A-Component-Hierarchy"><span class="nav-number">2.1.</span> <span class="nav-text">Break The UI Into A Component Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写组件-静态数据"><span class="nav-number">2.2.</span> <span class="nav-text">写组件(静态数据)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-state"><span class="nav-number">2.3.</span> <span class="nav-text">设置 state</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state"><span class="nav-number">2.3.1.</span> <span class="nav-text">找出 state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state-的存放位置。"><span class="nav-number">2.3.2.</span> <span class="nav-text">找出 state 的存放位置。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写交互"><span class="nav-number">2.4.</span> <span class="nav-text">写交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从后端拉取数据"><span class="nav-number">2.5.</span> <span class="nav-text">从后端拉取数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack"><span class="nav-number"></span> <span class="nav-text">webpack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置-Babel"><span class="nav-number">1.</span> <span class="nav-text">安装配置 Babel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置-ESLint"><span class="nav-number">2.</span> <span class="nav-text">安装配置 ESLint</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际编码"><span class="nav-number">2.</span> <span class="nav-text">实际编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件内容顺序"><span class="nav-number">2.1.</span> <span class="nav-text">文件内容顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Break-The-UI-Into-A-Component-Hierarchy"><span class="nav-number">2.2.</span> <span class="nav-text">Break The UI Into A Component Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写组件-静态数据"><span class="nav-number">2.3.</span> <span class="nav-text">写组件(静态数据)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-state"><span class="nav-number">2.4.</span> <span class="nav-text">设置 state</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state"><span class="nav-number">2.4.1.</span> <span class="nav-text">找出 state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state-的存放位置。"><span class="nav-number">2.4.2.</span> <span class="nav-text">找出 state 的存放位置。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写交互"><span class="nav-number">2.5.</span> <span class="nav-text">写交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从后端拉取数据"><span class="nav-number">2.6.</span> <span class="nav-text">从后端拉取数据</span></a></li></ol></li></ol></div>
             
 
           </div>
