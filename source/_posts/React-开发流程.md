@@ -26,7 +26,7 @@ tags: ['react']
   - es6 & react
 
     ```
-    npm i -D babel-core babel-loader babel-polyfill babel-p reset-env babel-preset-react react-hot-loader
+    npm i -D babel-core babel-loader babel-polyfill babel-p reset-env babel-preset-react react-hot-loader@next
 
     npm i -S react react-dom
     ```
@@ -43,11 +43,28 @@ tags: ['react']
     npm i -D html-webpack-plugin
     ```
 
-4. 编写 Hello World! 运行示例。
+  配置 webpack.config.js & .babelrc
 
-###
+  {% asset_img 'webpack.config.js-1.png' 'webpack.config.js-1' %}
 
-### 目录结构
+  {% asset_img 'webpack.config.js-2.png' 'webpack.config.js-2' %}
+
+  {% asset_img 'webpack.config.js-3.png' 'webpack.config.js-3' %}
+
+  {% asset_img 'babelrc.png' '.babelrc.png' %}
+
+4. 编写 package.json scripts
+
+  ```
+  {
+    "build": "webpack",
+    "dev": "webpack-dev-server --hot --progress --history-api-fallback --open"
+  }
+  ```
+
+5. 编写 Hello World! 运行示例，测试能够正常运行＆hot load是否正常运行。
+
+## 实际编码
 
 ### 文件内容顺序
 
@@ -56,13 +73,13 @@ tags: ['react']
 3. 导入 自定义组件；
 4. 导入自定义的一些东西，比如 utils；
 
-## 实际编码
-
 ### Break The UI Into A Component Hierarchy
 
 > 依据单一职责原理进行划分组件，也就是，一个组件理想状态下应该仅仅只做一件事。
 
-分好组件，命好名称。
+分好组件，命好名称。并在components目录下建立好相应的目录＆文件。
+
+{% asset_img 'step-1.png' '第一步' %}
 
 ### 写组件(静态数据)
 
@@ -94,42 +111,3 @@ Cool, so we've decided that our state lives in FilterableProductTable. First, ad
 ### 写交互
 
 ### 从后端拉取数据
-
----
-
-
-
----
-
-# webpack
-
-npm init --yes
-
-npm i -g webpack webpack-dev-server
-
-## 安装配置 Babel
-
-```bash
-$ npm i --save-dev babel-core babel-loader
-$ npm i --save-dev babel-preset-es2015 babel-preset-react
-```
-
-```json
-{
-  "presets": ["es2015", "react"]
-}
-```
-
-## 安装配置 ESLint
-
-```bash
-$ npm i --save-dev eslint eslint-loader
-$ npm i --save-dev eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
-$ npm i --save-dev eslint-config-airbnb
-```
-
-```json
-{
-  "extends": "airbnb"
-}
-```
