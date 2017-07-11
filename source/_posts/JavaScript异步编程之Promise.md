@@ -147,35 +147,74 @@ p.then(function(fileName) {
   });
 
   // 3
-  return undefined;
+  return result;
 }).then(function(result) {
   console.log(result);
 });
 ```
 
-<!-- TODO: stop 分析三种返回值的 event loop 队列 -->
-
 1. return 另一个 new Promise()
 
   这个用来再执行一个异步任务。
 
-2. 间接 return 一个简单的值
+2. 间接 return undefined
 
   这个 return 的值是得不到处理的，因此也差不多是多此一举的样子。
 
-3. 直接 return 一个简单的值
+3. 直接 return 一个简单值
 
-  这个暂时我觉得没有什么实际的用处，有多此一举的嫌疑。
+  这个暂时我觉得没有什么实际的用处，有多此一举的嫌疑。实际等同于 `resolve(result);`
 
 ### 并行执行一系列异步任务
 
-###
+除了串行执行若干异步任务外，Promise还可以并行执行异步任务。
+
+#### 同时返回多个异步任务的返回结果
+
+试想一个页面聊天系统，我们需要从两个不同的URL分别获得用户的个人信息和好友列表，这两个任务是可以并行执行的，用 `Promise.all()` 实现如下：
+
+```js
+let p1 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 500, 'P1');
+});
+
+let p2 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 600, 'P2');
+});
+
+// 同时执行p1和p2，并在它们都完成后执行then:
+Promise.all([p1, p2]).then(function(results) {
+  console.log(results); // 获得一个Array: ['P1', 'P2']
+});
+```
+
+注意：
+
+1. Promise.all() 的参数是一个 **数组**，并且数组中的项都是 **new Promise() 对象**。
+
+2. `Promise.all([p1, p2]).then(function(results) {});` results 是一个 **数组**。
+
+#### 容错的多个异步任务
+
+有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用 `Promise.race()` 实现:
+
+```js
+let p1 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 500, 'P1');
+});
+
+let p2 = new Promise(function(resolve, reject) {
+  setTimeout(resolve, 600, 'P2');
+});
+
+Promise.race([p1, p2]).then(function(result) {
+  console.log(result); // 'P1'
+});
+```
 
 ## Promise 的应用
 
 ### 网易面试题
-
-
 
 ## References
 
