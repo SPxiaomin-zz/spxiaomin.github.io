@@ -122,7 +122,7 @@ es6 &amp;amp; react
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/webpack.config.js-3.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/babelrc.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/step-1.png">
-<meta property="og:updated_time" content="2017-07-10T14:33:59.773Z">
+<meta property="og:updated_time" content="2017-07-11T08:31:15.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 开发流程">
 <meta name="twitter:description" content="准备工作
@@ -492,21 +492,22 @@ es6 &amp;amp; react
 <img src="/2017/06/12/React-开发流程/step-1.png" alt="第一步" title="第一步">
 <h3 id="写组件-静态数据"><a href="#写组件-静态数据" class="headerlink" title="写组件(静态数据)"></a>写组件(静态数据)</h3><ol>
 <li><p>全部组件单独写，填充假数据。</p>
+<p>从下而上进行编写，然后组装到一起。</p>
 </li>
-<li><p>组合组件，通过 props 传递数据。</p>
+<li><p>通过 props 传递数据。</p>
 </li>
 </ol>
 <h3 id="设置-state"><a href="#设置-state" class="headerlink" title="设置 state"></a>设置 state</h3><h4 id="找出-state"><a href="#找出-state" class="headerlink" title="找出 state"></a>找出 state</h4><p>Let’s go through each one and figure out which one is state. Simply ask three questions about each piece of data:</p>
 <ol>
-<li>Is it passed in from a parent via props? If so, it probably isn’t state.</li>
-<li>Does it remain unchanged over time? If so, it probably isn’t state.</li>
-<li>Can you compute it based on any other state or props in your component? If so, it isn’t state.</li>
+<li>Is it <strong>passed in from a parent via props</strong>? If so, it probably isn’t state.</li>
+<li>Does it <strong>remain unchanged over time</strong>? If so, it probably isn’t state.</li>
+<li>Can you <strong>compute it based on any other state or props</strong> in your component? If so, it isn’t state.</li>
 </ol>
 <h4 id="找出-state-的存放位置。"><a href="#找出-state-的存放位置。" class="headerlink" title="找出 state 的存放位置。"></a>找出 state 的存放位置。</h4><p>For each piece of state in your application:</p>
 <ol>
-<li>Identify every component that renders something based on that state.</li>
+<li><strong>Identify every component that renders something based on that state.</strong></li>
 <li>Find a common owner component (a single component above all the components that need the state in the hierarchy).</li>
-<li>Either the common owner or another component higher up in the hierarchy should own the state.</li>
+<li><strong>Either the common owner or another component higher up in the hierarchy should own the state.</strong></li>
 <li>If you can’t find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.</li>
 </ol>
 <p>Cool, so we’ve decided that our state lives in FilterableProductTable. First, add an instance property this.state = {filterText: ‘’, inStockOnly: false} to FilterableProductTable’s constructor to reflect the initial state of your application. Then, pass filterText and inStockOnly to ProductTable and SearchBar as a prop. Finally, use these props to filter the rows in ProductTable and set the values of the form fields in SearchBar.</p>
