@@ -85,7 +85,9 @@ tags: ['react']
 
 1. 全部组件单独写，填充假数据。
 
-2. 组合组件，通过 props 传递数据。
+  从下而上进行编写，然后组装到一起。
+
+2. 通过 props 传递数据。
 
 ### 设置 state
 
@@ -93,17 +95,17 @@ tags: ['react']
 
 Let's go through each one and figure out which one is state. Simply ask three questions about each piece of data:
 
-1. Is it passed in from a parent via props? If so, it probably isn't state.
-2. Does it remain unchanged over time? If so, it probably isn't state.
-3. Can you compute it based on any other state or props in your component? If so, it isn't state.
+1. Is it **passed in from a parent via props**? If so, it probably isn't state.
+2. Does it **remain unchanged over time**? If so, it probably isn't state.
+3. Can you **compute it based on any other state or props** in your component? If so, it isn't state.
 
 #### 找出 state 的存放位置。
 
 For each piece of state in your application:
 
-1. Identify every component that renders something based on that state.
+1. **Identify every component that renders something based on that state.**
 2. Find a common owner component (a single component above all the components that need the state in the hierarchy).
-3. Either the common owner or another component higher up in the hierarchy should own the state.
+3. **Either the common owner or another component higher up in the hierarchy should own the state.**
 4. If you can't find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.
 
 Cool, so we've decided that our state lives in FilterableProductTable. First, add an instance property this.state = {filterText: '', inStockOnly: false} to FilterableProductTable's constructor to reflect the initial state of your application. Then, pass filterText and inStockOnly to ProductTable and SearchBar as a prop. Finally, use these props to filter the rows in ProductTable and set the values of the form fields in SearchBar.
