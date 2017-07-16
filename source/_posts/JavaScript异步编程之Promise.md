@@ -74,7 +74,7 @@ p.then(function(result) {
 
 比如，有若干个异步任务，需要先做任务1，如果成功后再做任务2，任何任务失败则不再继续并执行错误处理函数。
 
-要串行执行这样的异步任务，不用 Promise 需要写一层一层的嵌套代码。
+要串行执行这样的异步任务，不用 Promise 需要写一层一层的嵌套代码（也就是俗称的回调地狱）。
 
 ```js
 let filename = '1.js';
@@ -88,7 +88,7 @@ readFileAsync(filename, function(error, result) {
 });
 ```
 
-通过 Promise 处理了之后。
+通过 Promise 处理了之后，就将回调地狱的问题解决了。
 
 ```js
 function readFileAsyncPromise(fileName) {
