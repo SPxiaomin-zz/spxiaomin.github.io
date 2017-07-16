@@ -26,6 +26,8 @@ function fn(want) {
 fn(want);
 ```
 
+<!-- more -->
+
 ## 队列机制
 
 ```js
@@ -43,3 +45,35 @@ fn(want);
 ```
 
 ## Promise 队列
+
+```js
+function want() {
+  console.log('这是你想要执行的代码');
+}
+
+function fn(want) {
+  console.log('这里表示执行了一大堆各种代码');
+
+  return new Promise(function(resolve, reject) {
+    if (typeof want === 'function') {
+      resolve(want);
+    } else {
+      reject(`TypeError: ${want} is not a function`);
+    }
+  });
+}
+
+fn(want).then(function(want) {
+  want();
+});
+
+fn('1234').catch(function(error) {
+  console.log(error);
+});
+```
+
+## References
+
+- [前端基础进阶（十三）：透彻掌握Promise的使用，读这篇就够了](http://www.jianshu.com/p/fe5f173276bd)
+
+END.

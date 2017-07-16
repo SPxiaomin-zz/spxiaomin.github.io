@@ -88,7 +88,7 @@ readFileAsync(filename, function(error, result) {
 });
 ```
 
-通过 Promise 处理了之后，就将回调地狱的问题解决了。
+通过 Promise 处理了之后，就 **将回调地狱的问题解决了**。
 
 ```js
 function readFileAsyncPromise(fileName) {
