@@ -72,6 +72,18 @@ tags: ['react']
 2. 导入 css；
 3. 导入 自定义组件；
 4. 导入自定义的一些东西，比如 utils；
+5. class
+
+  1. constructor
+
+    1. this.state = {};
+    2. this.customMethod = this.customMethod.bind(this);
+
+  2. 自定义方法
+  3. componentDidMount
+  4. render
+
+6. export
 
 ### Break The UI Into A Component Hierarchy
 
@@ -113,3 +125,15 @@ Cool, so we've decided that our state lives in FilterableProductTable. First, ad
 ### 写交互
 
 ### 从后端拉取数据
+
+通过在 `componentDidMount` 生命周期函数中向远程发送 ajax 请求，然后将获取的数据进行 `setState` 就可以了。
+
+### 最终项目源码
+
+<https://github.com/SPxiaomin/Thinking-in-React>
+
+## References
+
+- [Thinking in React - React](https://facebook.github.io/react/docs/thinking-in-react.html)
+
+END.
