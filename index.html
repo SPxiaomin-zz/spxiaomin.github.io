@@ -404,11 +404,9 @@
 
       
         
-          
-          当我们想要确保某代码在谁谁之后执行时，我们可以使用如下的几种方式:
-函数调用栈可以利用函数调用栈，将我们想要执行的代码放入回调函数中。
-123456789101112function want() &#123;  console.log('这是你想要执行的代码');&#125;function fn
-          ...
+          <p>当我们想要确保某代码在谁谁之后执行时，我们可以使用如下的几种方式:</p>
+<h2 id="函数调用栈"><a href="#函数调用栈" class="headerlink" title="函数调用栈"></a>函数调用栈</h2><p>可以利用函数调用栈，将我们想要执行的代码放入回调函数中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">want</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'这是你想要执行的代码'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">want</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'这里表示执行了一大堆各种代码'</span>);</div><div class="line"></div><div class="line">  <span class="comment">// 其他代码执行完毕，最后执行回调函数</span></div><div class="line">  want &amp;&amp; want();</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn(want);</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/07/16/JavaScript中如何确保代码的执行顺序/#more" rel="contents">
