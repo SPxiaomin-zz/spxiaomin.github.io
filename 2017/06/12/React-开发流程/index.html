@@ -122,7 +122,7 @@ es6 &amp;amp; react
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/webpack.config.js-3.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/babelrc.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/12/React-开发流程/step-1.png">
-<meta property="og:updated_time" content="2017-07-11T08:31:15.531Z">
+<meta property="og:updated_time" content="2017-07-16T07:15:44.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 开发流程">
 <meta name="twitter:description" content="准备工作
@@ -484,6 +484,22 @@ es6 &amp;amp; react
 <li>导入 css；</li>
 <li>导入 自定义组件；</li>
 <li>导入自定义的一些东西，比如 utils；</li>
+<li><p>class</p>
+<ol>
+<li><p>constructor</p>
+<ol>
+<li>this.state = {};</li>
+<li>this.customMethod = this.customMethod.bind(this);</li>
+</ol>
+</li>
+<li><p>自定义方法</p>
+</li>
+<li>componentDidMount</li>
+<li>render</li>
+</ol>
+</li>
+<li><p>export</p>
+</li>
 </ol>
 <h3 id="Break-The-UI-Into-A-Component-Hierarchy"><a href="#Break-The-UI-Into-A-Component-Hierarchy" class="headerlink" title="Break The UI Into A Component Hierarchy"></a>Break The UI Into A Component Hierarchy</h3><blockquote>
 <p>依据单一职责原理进行划分组件，也就是，一个组件理想状态下应该仅仅只做一件事。</p>
@@ -511,7 +527,13 @@ es6 &amp;amp; react
 <li>If you can’t find a component where it makes sense to own the state, create a new component simply for holding the state and add it somewhere in the hierarchy above the common owner component.</li>
 </ol>
 <p>Cool, so we’ve decided that our state lives in FilterableProductTable. First, add an instance property this.state = {filterText: ‘’, inStockOnly: false} to FilterableProductTable’s constructor to reflect the initial state of your application. Then, pass filterText and inStockOnly to ProductTable and SearchBar as a prop. Finally, use these props to filter the rows in ProductTable and set the values of the form fields in SearchBar.</p>
-<h3 id="写交互"><a href="#写交互" class="headerlink" title="写交互"></a>写交互</h3><h3 id="从后端拉取数据"><a href="#从后端拉取数据" class="headerlink" title="从后端拉取数据"></a>从后端拉取数据</h3>
+<h3 id="写交互"><a href="#写交互" class="headerlink" title="写交互"></a>写交互</h3><h3 id="从后端拉取数据"><a href="#从后端拉取数据" class="headerlink" title="从后端拉取数据"></a>从后端拉取数据</h3><p>通过在 <code>componentDidMount</code> 生命周期函数中向远程发送 ajax 请求，然后将获取的数据进行 <code>setState</code> 就可以了。</p>
+<h3 id="最终项目源码"><a href="#最终项目源码" class="headerlink" title="最终项目源码"></a>最终项目源码</h3><p><a href="https://github.com/SPxiaomin/Thinking-in-React" target="_blank" rel="external">https://github.com/SPxiaomin/Thinking-in-React</a></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://facebook.github.io/react/docs/thinking-in-react.html" target="_blank" rel="external">Thinking in React - React</a></li>
+</ul>
+<p>END.</p>
+
       
     </div>
 
@@ -696,7 +718,7 @@ es6 &amp;amp; react
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际编码"><span class="nav-number">2.</span> <span class="nav-text">实际编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件内容顺序"><span class="nav-number">2.1.</span> <span class="nav-text">文件内容顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Break-The-UI-Into-A-Component-Hierarchy"><span class="nav-number">2.2.</span> <span class="nav-text">Break The UI Into A Component Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写组件-静态数据"><span class="nav-number">2.3.</span> <span class="nav-text">写组件(静态数据)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-state"><span class="nav-number">2.4.</span> <span class="nav-text">设置 state</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state"><span class="nav-number">2.4.1.</span> <span class="nav-text">找出 state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state-的存放位置。"><span class="nav-number">2.4.2.</span> <span class="nav-text">找出 state 的存放位置。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写交互"><span class="nav-number">2.5.</span> <span class="nav-text">写交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从后端拉取数据"><span class="nav-number">2.6.</span> <span class="nav-text">从后端拉取数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际编码"><span class="nav-number">2.</span> <span class="nav-text">实际编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件内容顺序"><span class="nav-number">2.1.</span> <span class="nav-text">文件内容顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Break-The-UI-Into-A-Component-Hierarchy"><span class="nav-number">2.2.</span> <span class="nav-text">Break The UI Into A Component Hierarchy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写组件-静态数据"><span class="nav-number">2.3.</span> <span class="nav-text">写组件(静态数据)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-state"><span class="nav-number">2.4.</span> <span class="nav-text">设置 state</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state"><span class="nav-number">2.4.1.</span> <span class="nav-text">找出 state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找出-state-的存放位置。"><span class="nav-number">2.4.2.</span> <span class="nav-text">找出 state 的存放位置。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写交互"><span class="nav-number">2.5.</span> <span class="nav-text">写交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从后端拉取数据"><span class="nav-number">2.6.</span> <span class="nav-text">从后端拉取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终项目源码"><span class="nav-number">2.7.</span> <span class="nav-text">最终项目源码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
