@@ -206,6 +206,26 @@ Promise.all([p1, p2]).then(function(results) {
 
 2. `Promise.all([p1, p2]).then(function(results) {});` results 是一个 **数组**。
 
+3. 当reject时，
+
+  如果仅仅存在一个reject，那就只会处理那一个reject，resolve的部分不会处理。
+
+  - {% asset_img 'promise.all-1.png' '仅仅存在一个reject时' %}
+
+  如果两个都是reject，
+
+  1. 当返回的时间不同的时候，那就只会处理先返回的那个reject，后一个reject不会处理。
+
+    {% asset_img 'promise.all-2.png' '两个reject，返回时间不同' %}
+
+  2. 当返回的时间相同的时候，也只会处理一个，但是是处理源代码中位置靠前的那一个(和在all参数中的位置无关)。
+
+    {% asset_img 'promise.all-3.png' '三个reject，返回时间相同，在源码中的位置不同' %}
+
+    {% asset_img 'promise.all-4.png' '三个reject，返回时间相同，在源码中的位置不同' %}
+    
+    {% asset_img 'promise.all-5.png' '三个reject，返回时间相同，在源码中的位置不同' %}
+
 #### 容错的多个异步任务
 
 有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用 `Promise.race()` 实现:
