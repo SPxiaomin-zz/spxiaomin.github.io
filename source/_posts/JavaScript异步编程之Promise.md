@@ -155,7 +155,7 @@ p.then(function(fileName) {
 
 1. return 另一个 new Promise()
 
-  这个用来再执行一个异步任务。
+  这个用来再执行一个异步任务。**这也是解决回调地狱的主要方式**。
 
 2. 间接 return undefined
 
@@ -164,6 +164,18 @@ p.then(function(fileName) {
 3. 直接 return 一个简单值
 
   这个暂时我觉得没有什么实际的用处，有多此一举的嫌疑。实际等同于 `resolve(result);`
+
+其实上面的三种方式也是传递数据的几种方式——resolve、reject、return；
+
+- 开头的Promise
+
+  必须通过resolve、reject返回值；
+
+- then
+
+  可以通过 `return new Promise() + resolve|reject` 的方式返回值；
+
+  也可以通过 `return result;` 的方式返回值。
 
 ### 并行执行一系列异步任务
 
@@ -219,3 +231,4 @@ Promise.race([p1, p2]).then(function(result) {
 ## References
 
 - [廖雪峰Promise](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345008539155e93fc16046d4bb7854943814c4f9dc2000)
+- [前端基础进阶（十三）：透彻掌握Promise的使用，读这篇就够了](http://www.jianshu.com/p/fe5f173276bd)
