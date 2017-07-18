@@ -267,10 +267,13 @@ Promise.race([p1, p2]).then(function(result) {
   无论都是两个 resolve，还是都是两个 reject，或者是一个是 resolve、一个是 reject，
 
   - 看谁先返回就先处理谁。
-  <!-- TODO: stop writing here -->
-  - 如果同时返回的
+  - 如果同时返回的话，就处理源代码中位置靠前的。
 
-2. then 的执行时间
+2. then 的执行时间——
+
+  如果有先返回的，就立刻执行 then 进行相关的处理，不用等待。
+
+  如果相同时间的话，就处理源代码中位置靠前的。
 
 ## Promise 的应用
 
