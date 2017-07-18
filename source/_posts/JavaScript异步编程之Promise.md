@@ -206,7 +206,9 @@ Promise.all([p1, p2]).then(function(results) {
 
 2. `Promise.all([p1, p2]).then(function(results) {});` results 是一个 **数组**。
 
-3. 当reject时，
+3. 即then的执行方式，
+
+  如果都是 resolve，那么就调用then方法中的第一个参数。
 
   如果仅仅存在一个reject，那就只会处理那一个reject，resolve的部分不会处理。
 
@@ -223,8 +225,22 @@ Promise.all([p1, p2]).then(function(results) {
     {% asset_img 'promise.all-3.png' '三个reject，返回时间相同，在源码中的位置不同' %}
 
     {% asset_img 'promise.all-4.png' '三个reject，返回时间相同，在源码中的位置不同' %}
-    
+
     {% asset_img 'promise.all-5.png' '三个reject，返回时间相同，在源码中的位置不同' %}
+
+4. then的执行时间，
+
+  1. 当两个都是 resolved 的时候，那就要等到都变为 resolved 才会执行 then 方法。
+
+  2. 当一个是 rejected、一个是 resolved 的时候，
+
+    - 如果rejected那个先执行，那么就立刻执行 then 方法。
+    - 如果resolved那个先执行，那么就等到 rejected 那个执行完再执行 then 方法。
+
+  3. 当都是 rejected 的时候，
+
+    - 返回时间不同的话，当有一个先 rejected 了就立刻执行 then 方法；
+    - 返回时间相同的话，先执行源码中位置靠前的。
 
 #### 容错的多个异步任务
 
@@ -243,6 +259,18 @@ Promise.race([p1, p2]).then(function(result) {
   console.log(result); // 'P1'
 });
 ```
+
+注意：
+
+1. then 的执行方式——
+
+  无论都是两个 resolve，还是都是两个 reject，或者是一个是 resolve、一个是 reject，
+
+  - 看谁先返回就先处理谁。
+  <!-- TODO: stop writing here -->
+  - 如果同时返回的
+
+2. then 的执行时间
 
 ## Promise 的应用
 
