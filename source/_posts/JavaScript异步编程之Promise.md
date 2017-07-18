@@ -274,6 +274,8 @@ Promise.race([p1, p2]).then(function(result) {
 
 ## Promise 的应用
 
+<!-- TODO: 适合在什么场景下解决什么问题——解决异步回调地狱的问题 -->
+
 ### 网易面试题
 
 ## References
