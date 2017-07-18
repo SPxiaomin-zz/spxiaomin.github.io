@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/05/21/JavaScript异步编程之Promise/promise.all-3.png">
 <meta property="og:image" content="http://yoursite.com/2017/05/21/JavaScript异步编程之Promise/promise.all-4.png">
 <meta property="og:image" content="http://yoursite.com/2017/05/21/JavaScript异步编程之Promise/promise.all-5.png">
-<meta property="og:updated_time" content="2017-07-17T03:01:58.151Z">
+<meta property="og:updated_time" content="2017-07-18T03:56:58.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript异步编程之Promise">
 <meta name="twitter:description" content="在JavaScript的世界中，所有代码都是单线程执行的。由于这个 “缺陷”， 导致JavaScript的所有网络操作、浏览器事件，都必须是异步执行。
@@ -453,7 +453,8 @@
 </li>
 <li><p><code>Promise.all([p1, p2]).then(function(results) {});</code> results 是一个 <strong>数组</strong>。</p>
 </li>
-<li><p>当reject时，</p>
+<li><p>即then的执行方式，</p>
+<p>如果都是 resolve，那么就调用then方法中的第一个参数。</p>
 <p>如果仅仅存在一个reject，那就只会处理那一个reject，resolve的部分不会处理。</p>
 <ul>
 <li><img src="/2017/05/21/JavaScript异步编程之Promise/promise.all-1.png" alt="仅仅存在一个reject时" title="仅仅存在一个reject时">
@@ -471,9 +472,39 @@
 </li>
 </ol>
 </li>
+<li><p>then的执行时间，</p>
+<ol>
+<li><p>当两个都是 resolved 的时候，那就要等到都变为 resolved 才会执行 then 方法。</p>
+</li>
+<li><p>当一个是 rejected、一个是 resolved 的时候，</p>
+<ul>
+<li>如果rejected那个先执行，那么就立刻执行 then 方法。</li>
+<li>如果resolved那个先执行，那么就等到 rejected 那个执行完再执行 then 方法。</li>
+</ul>
+</li>
+<li><p>当都是 rejected 的时候，</p>
+<ul>
+<li>返回时间不同的话，当有一个先 rejected 了就立刻执行 then 方法；</li>
+<li>返回时间相同的话，先执行源码中位置靠前的。</li>
+</ul>
+</li>
+</ol>
+</li>
 </ol>
 <h4 id="容错的多个异步任务"><a href="#容错的多个异步任务" class="headerlink" title="容错的多个异步任务"></a>容错的多个异步任务</h4><p>有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用 <code>Promise.race()</code> 实现:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  setTimeout(resolve, <span class="number">500</span>, <span class="string">'P1'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  setTimeout(resolve, <span class="number">600</span>, <span class="string">'P2'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">Promise</span>.race([p1, p2]).then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(result); <span class="comment">// 'P1'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li><p>then 的执行方式——</p>
+<p>无论都是两个 resolve，还是都是两个 reject，或者是一个是 resolve、一个是 reject，</p>
+<ul>
+<li>看谁先返回就先处理谁。<!-- TODO: stop writing here --></li>
+<li>如果同时返回的</li>
+</ul>
+</li>
+<li><p>then 的执行时间</p>
+</li>
+</ol>
 <h2 id="Promise-的应用"><a href="#Promise-的应用" class="headerlink" title="Promise 的应用"></a>Promise 的应用</h2><h3 id="网易面试题"><a href="#网易面试题" class="headerlink" title="网易面试题"></a>网易面试题</h3><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345008539155e93fc16046d4bb7854943814c4f9dc2000" target="_blank" rel="external">廖雪峰Promise</a></li>
 <li><a href="http://www.jianshu.com/p/fe5f173276bd" target="_blank" rel="external">前端基础进阶（十三）：透彻掌握Promise的使用，读这篇就够了</a></li>
@@ -599,7 +630,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -608,7 +639,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -617,7 +648,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
