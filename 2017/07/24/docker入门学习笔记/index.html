@@ -106,7 +106,7 @@ https://cr.console.aliyu">
 1$ docker pull centos
 使用阿里云镜像加速
 https://cr.console.aliyu">
-<meta property="og:updated_time" content="2017-07-24T09:04:27.429Z">
+<meta property="og:updated_time" content="2017-07-24T11:40:15.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker入门学习笔记">
 <meta name="twitter:description" content="安装https://cr.console.aliyun.com/?spm=5176.1971733.0.2.394b9fbdWjruQ3#/accelerator
@@ -461,9 +461,14 @@ https://cr.console.aliyu">
 <h2 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h2><p>手动创建镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker commit -m &apos;提交的日志&apos; -a &apos;作者名字&apos; CONTAINER ID 用户名/镜像的名字:tag</div><div class="line"># tag可以是latest，表示最新的一个版本</div></pre></td></tr></table></figure>
 <p>使用Dockerfile创建镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!-- TODO: stop 操作结束，记录操作过程，并看完后续这节的视频 --&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FROM centos</div><div class="line">MAINTAINER SPxiaomin &lt;3013366498@qq.com&gt;</div><div class="line">RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -</div><div class="line">RUN yum install -y nodejs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker build --tag spxiaomin/nodejs-demo:lastest ./</div><div class="line"># 最后面是Dockerfile文件的位置</div></pre></td></tr></table></figure>
 <p>删除主机上的镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker rmi 镜像的名字</div><div class="line">e.g. docker rmi spxiaomin/nodejs-demo</div></pre></td></tr></table></figure>
+<p>把镜像推送到Docker hub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker login</div><div class="line">$ docker push spxiaomin/nodejs-demo</div></pre></td></tr></table></figure>
+<p>把镜像推送到阿里云</p>
+<p><a href="https://cr.console.aliyun.com/?spm=5176.1971733.0.2.394b9fbdfuuK1g#/dockerImage/59203/detail" target="_blank" rel="external">https://cr.console.aliyun.com/?spm=5176.1971733.0.2.394b9fbdfuuK1g#/dockerImage/59203/detail</a></p>
 <p>END.</p>
 
       
