@@ -131,7 +131,15 @@ $ docker commit -m '提交的日志' -a '作者名字' CONTAINER ID 用户名/�
 使用Dockerfile创建镜像
 
 ```
-<!-- TODO: stop 操作结束，记录操作过程，并看完后续这节的视频 -->
+FROM centos
+MAINTAINER SPxiaomin <3013366498@qq.com>
+RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+RUN yum install -y nodejs
+```
+
+```shell
+$ docker build --tag spxiaomin/nodejs-demo:lastest ./
+# 最后面是Dockerfile文件的位置
 ```
 
 删除主机上的镜像
@@ -140,5 +148,16 @@ $ docker commit -m '提交的日志' -a '作者名字' CONTAINER ID 用户名/�
 $ docker rmi 镜像的名字
 e.g. docker rmi spxiaomin/nodejs-demo
 ```
+
+把镜像推送到Docker hub
+
+```shell
+$ docker login
+$ docker push spxiaomin/nodejs-demo
+```
+
+把镜像推送到阿里云
+
+<https://cr.console.aliyun.com/?spm=5176.1971733.0.2.394b9fbdfuuK1g#/dockerImage/59203/detail>
 
 END.
