@@ -37,6 +37,8 @@ m2({x: 3, y: 3}); // [3, 3]
 
 上面两种写法的区别：上面两种写法都对函数的参数设定了默认值，区别是写法一函数参数的默认值是空对象，但是设置了对象解构赋值的默认值；写法二函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值。
 
+<!-- more -->
+
 ## 实际应用
 
 ```js
@@ -58,7 +60,7 @@ class Dialog {
     `;
   }
 
-  //...
+  // ...
 }
 ```
 
@@ -69,7 +71,22 @@ class Dialog {
 3. 可能只传一个值 `new Dialog({title: '天气'})`；
 4. 可能两个值都传 `new Dialog({title: '天气', content: '39.9°'})`；
 
-，但是无论什么情况都必须保证使用组件的人没有明确设置的参数值，必须有默认值，不能是 `undefined`，所以只能使用写法一。
+，但是无论什么情况都必须保证使用组件的人没有明确设置的参数，必须有默认值，不能是 `undefined`，所以只能使用写法一。
+
+```js
+// 如果使用es5的写法如下：
+
+class Dialog {
+  constructor(config) {
+    !config && (config = {});
+
+    this.title = config.title ? config.title : '这是标题';
+    this.content = config.content ? config.content : '这是内容';
+  }
+
+  // ...
+}
+```
 
 ## References
 
