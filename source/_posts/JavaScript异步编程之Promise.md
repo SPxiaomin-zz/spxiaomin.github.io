@@ -277,11 +277,99 @@ Promise.race([p1, p2]).then(function(result) {
 
 ## Promise 的应用
 
-<!-- TODO: 适合在什么场景下解决什么问题——解决异步回调地狱的问题|将异步任务的数据请求和数据处理分离开来 -->
+### Promise 的适用场景
+
+Promise 因回调地狱的问题而出现，因此Promise适用来解决回调地狱的问题。
 
 ### 网易面试题
+
+> 现在有三个 [异步接口]，分别是
+1. getTodayUser： 获取当天用户id，callback返回userId
+2. getTodayMovie: 获取当天的电影id，callback返回movieId
+3. bookMovieForUser 为用户预定电影，参数是userId和movieId
+现在要实现，一个接口bookTodayMovieForTodayUser，为当天用户预定当天电影
+
+> getTodayUser(function(userId) {
+  // 获得当天的预定客户
+});
+
+> getTodayMovie(function(movieId) {
+  // 获得当天的电影
+});
+
+> bookMovieForUser(userId, movieId, function(isDone) {
+});
+
+> // 根据以上接口封装这个函数
+bookTodayMovieForTodayUser(function(isDone) {
+  // 为今天预定客户预定当天影片
+  alert('预定成功');
+});
+
+解答(传统解答):
+
+```js
+function bookTodayMovieForTodayUser(callback) {
+  let ids = {};
+
+  function check() {
+    if (typeof ids.userId !== 'undefined' && typeof ids.movieId !== 'undefined') {
+      bookMovieForUesr(ids.userId, ids.movieId, function(isDone) {
+        callback(isDone);
+      });
+    }
+  }
+
+  getTodayUser(function(userId) {
+    ids.userId = userId;
+    check();
+  });
+
+  getTodayMovie(function(movieId) {
+    ids.movieId = movieId;
+    check();
+  });
+}
+
+bookTodayMovieForTodayUser(function(isDone) {
+  alert('预定成功');
+});
+```
+
+解答2:
+
+```js
+function bookTodayMovieForTodayUser(callback) {
+  let userPromise = new Promise(function(resolve, reject) {
+    getTodayUser(function(userId) {
+      resolve(userId);
+    });
+  });
+
+  let moviePromise = new Promise(function(resolve, reject) {
+    getTodayMovie(function(movieId) {
+      resolve(movieId)
+    });
+  });
+
+  Promise.all([userPromise, moviePromise]).then(function([userId, movieId]) {
+    return new Promise(function(resolve, reject) {
+      bookMovieForUser(userId, movieId, function(isDone) {
+        resolve(isDone);
+      });
+    });
+  })
+  .then(callback)
+  .catch(e => console.log(e));
+}
+
+bookTodayMovieForTodayUser(function(isDone) {
+  alert('预定成功');
+});
+```
 
 ## References
 
 - [廖雪峰Promise](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345008539155e93fc16046d4bb7854943814c4f9dc2000)
 - [前端基础进阶（十三）：透彻掌握Promise的使用，读这篇就够了](http://www.jianshu.com/p/fe5f173276bd)
+- [5个经典的前端面试题-网易云课堂](http://study.163.com/course/courseLearn.htm?courseId=1003674021#/learn/live?lessonId=1004206346&courseId=1003674021)
