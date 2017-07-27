@@ -159,9 +159,11 @@ p.then(function(fileName) {
 
 2. 间接 return undefined
 
-  这个 return 的值是得不到处理的，因此也差不多是多此一举的样子。
+  这个异步中 return 的值是得不到处理的。
 
 3. 直接 return 一个简单值
+
+<!-- TODO: stop reading here-核对下面一句话的真实性&Test/promise.js -->
 
   这个暂时我觉得没有什么实际的用处，有多此一举的嫌疑。实际等同于 `resolve(result);`
 
@@ -361,6 +363,39 @@ function bookTodayMovieForTodayUser(callback) {
   })
   .then(callback)
   .catch(e => console.log(e));
+}
+
+bookTodayMovieForTodayUser(function(isDone) {
+  alert('预定成功');
+});
+```
+
+解答2优化:
+
+```js
+function convertToPromise(fn) {
+  return function() {
+    let args = [].slice.call(arguments);
+
+    return new Promise(function(resolve, reject) {
+      let callback = function(result) {
+        resolve(result);
+      };
+      args.push(callback);
+
+      fn.apply(undefined, args);
+    });
+  };
+}
+
+function bookTodayMovieForTodayUser(callback) {
+  let userPromise = convertToPromise(getTodayUser);
+  let moviePromise = convertToPromise(getTodayMovie);
+  let bookPromise = convertToPromise(bookTodayMovieForTodayUser);
+
+  Promise.all([userPromise(), moviePromise()]).then(function([userId, movieId]) {
+    return bookPromise(userId, movieId);
+  }).then(callback);
 }
 
 bookTodayMovieForTodayUser(function(isDone) {
