@@ -163,9 +163,7 @@ p.then(function(fileName) {
 
 3. 直接 return 一个简单值
 
-<!-- TODO: stop reading here-核对下面一句话的真实性&Test/promise.js -->
-
-  这个暂时我觉得没有什么实际的用处，有多此一举的嫌疑。实际等同于 `resolve(result);`
+  这个暂时我觉得没有什么实际的用处，有多此一举的嫌疑。
 
 其实上面的三种方式也是传递数据的几种方式——resolve、reject、return；
 
@@ -175,7 +173,7 @@ p.then(function(fileName) {
 
 - then
 
-  可以通过 `return new Promise() + resolve|reject` 的方式返回值；
+  可以通过 `return new Promise() + resolve|reject` 的方式返回值，这是用来顺序执行多个异步任务的方式，也即用来解决回调地狱的主要方式。
 
   也可以通过 `return result;` 的方式返回值。
 
