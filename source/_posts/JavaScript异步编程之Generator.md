@@ -28,9 +28,13 @@ function foo() {
 }
 
 async function fn() {
-  let t = await foo();
-  console.log(t);
-  console.log('next code');
+  try {
+    let t = await foo();
+    console.log(t);
+    console.log('next code');
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 fn();
