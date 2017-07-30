@@ -18,6 +18,12 @@ g.next(); // { value: 3, done: false }
 g.next(2); // { value: 2, done: true }
 ```
 
+## Generator 异步实例
+
+```javascript
+
+```
+
 ## Async 入门示例
 
 ```javascript
