@@ -85,18 +85,18 @@
 
 
 <meta name="description" content="Generator 入门示例12345678function* gen(x) &amp;#123;  let y = yield x + 2;  return y;&amp;#125;let g = gen(1);g.next(); // &amp;#123; value: 3, done: false &amp;#125;g.next(2); // &amp;#123; value: 2, done: true &amp;#125;
-Asyn">
+Gene">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript异步编程之Generator&async/await">
 <meta property="og:url" content="http://yoursite.com/2017/07/25/JavaScript异步编程之Generator/index.html">
 <meta property="og:site_name" content="SPxiaomin的博客">
 <meta property="og:description" content="Generator 入门示例12345678function* gen(x) &amp;#123;  let y = yield x + 2;  return y;&amp;#125;let g = gen(1);g.next(); // &amp;#123; value: 3, done: false &amp;#125;g.next(2); // &amp;#123; value: 2, done: true &amp;#125;
-Asyn">
-<meta property="og:updated_time" content="2017-07-29T00:25:10.870Z">
+Gene">
+<meta property="og:updated_time" content="2017-07-30T02:31:34.050Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript异步编程之Generator&async/await">
 <meta name="twitter:description" content="Generator 入门示例12345678function* gen(x) &amp;#123;  let y = yield x + 2;  return y;&amp;#125;let g = gen(1);g.next(); // &amp;#123; value: 3, done: false &amp;#125;g.next(2); // &amp;#123; value: 2, done: true &amp;#125;
-Asyn">
+Gene">
 
 
 
@@ -403,6 +403,7 @@ Asyn">
 
       
         <h2 id="Generator-入门示例"><a href="#Generator-入门示例" class="headerlink" title="Generator 入门示例"></a>Generator 入门示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> y = <span class="keyword">yield</span> x + <span class="number">2</span>;</div><div class="line">  <span class="keyword">return</span> y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> g = gen(<span class="number">1</span>);</div><div class="line">g.next(); <span class="comment">// &#123; value: 3, done: false &#125;</span></div><div class="line">g.next(<span class="number">2</span>); <span class="comment">// &#123; value: 2, done: true &#125;</span></div></pre></td></tr></table></figure>
+<h2 id="Generator-异步实例"><a href="#Generator-异步实例" class="headerlink" title="Generator 异步实例"></a>Generator 异步实例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <h2 id="Async-入门示例"><a href="#Async-入门示例" class="headerlink" title="Async 入门示例"></a>Async 入门示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    setTimeout(resolve, <span class="number">3000</span>, <span class="number">30</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">let</span> t = <span class="keyword">await</span> foo();</div><div class="line">    <span class="built_in">console</span>.log(t);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'next code'</span>);</div><div class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">    <span class="built_in">console</span>.log(e);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">fn();</div><div class="line"><span class="comment">// 30</span></div><div class="line"><span class="comment">// next code</span></div></pre></td></tr></table></figure>
 
       
@@ -585,7 +586,7 @@ Asyn">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-入门示例"><span class="nav-number">1.</span> <span class="nav-text">Generator 入门示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-入门示例"><span class="nav-number">2.</span> <span class="nav-text">Async 入门示例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-入门示例"><span class="nav-number">1.</span> <span class="nav-text">Generator 入门示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-异步实例"><span class="nav-number">2.</span> <span class="nav-text">Generator 异步实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Async-入门示例"><span class="nav-number">3.</span> <span class="nav-text">Async 入门示例</span></a></li></ol></div>
             
 
           </div>
