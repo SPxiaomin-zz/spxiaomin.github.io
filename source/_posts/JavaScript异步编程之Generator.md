@@ -21,7 +21,33 @@ g.next(2); // { value: 2, done: true }
 ## Generator 异步实例
 
 ```javascript
+const fetch = require('node-fetch');
 
+function* gen() {
+  const url = 'https://api.github.com/users/github';
+  let result = yield fetch(url);
+  console.log(result.bio);
+}
+
+let g = gen();
+let result = g.next();
+
+result
+  .value
+  .then(data => data.json())
+  .then(result => g.next(result));
+```
+
+```javascript
+// await 版
+const fetch = require('node-fetch');
+
+async function gen() {
+  const url = 'https://api.github.com/users/github';
+  let temp = await fetch(url);
+  let result = await temp.json();
+  console.log(result.bio);
+}
 ```
 
 ## Async 入门示例
