@@ -48,6 +48,8 @@ async function gen() {
   let result = await temp.json();
   console.log(result.bio);
 }
+
+gen();
 ```
 
 ## Async 入门示例
