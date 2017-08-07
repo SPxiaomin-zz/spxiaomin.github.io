@@ -88,9 +88,13 @@
 
 其中的一条是结构和样式分离，e.g. 不要使用 HTML 元素来做 CSS 可以做的事情，使用 &amp;lt;br&amp;gt; 来添加空行。
 
-CSSJavaScript放在文件尾部，防止阻塞页面的加载。
+CSS放在 &amp;lt;head&amp;gt; 标签部分，避免空白或闪烁。
+借用属性的继承特性。
+减少选择器的层级。
+JavaScript放在文件尾部，防止阻塞页面的显示。
+写代码避免重绘和重流。
 
-背景图片是预先合并好的，这样能节省网站的 HTTP 请求。">
+其他最小化JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="性能优化学习">
 <meta property="og:url" content="http://yoursite.com/2017/04/27/性能优化学习/index.html">
@@ -99,19 +103,27 @@ CSSJavaScript放在文件尾部，防止阻塞页面的加载。
 
 其中的一条是结构和样式分离，e.g. 不要使用 HTML 元素来做 CSS 可以做的事情，使用 &amp;lt;br&amp;gt; 来添加空行。
 
-CSSJavaScript放在文件尾部，防止阻塞页面的加载。
+CSS放在 &amp;lt;head&amp;gt; 标签部分，避免空白或闪烁。
+借用属性的继承特性。
+减少选择器的层级。
+JavaScript放在文件尾部，防止阻塞页面的显示。
+写代码避免重绘和重流。
 
-背景图片是预先合并好的，这样能节省网站的 HTTP 请求。">
-<meta property="og:updated_time" content="2017-05-12T11:55:38.689Z">
+其他最小化JavaScript">
+<meta property="og:updated_time" content="2017-08-07T04:01:38.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能优化学习">
 <meta name="twitter:description" content="HTML精简 HTML，减少不必要的元素。
 
 其中的一条是结构和样式分离，e.g. 不要使用 HTML 元素来做 CSS 可以做的事情，使用 &amp;lt;br&amp;gt; 来添加空行。
 
-CSSJavaScript放在文件尾部，防止阻塞页面的加载。
+CSS放在 &amp;lt;head&amp;gt; 标签部分，避免空白或闪烁。
+借用属性的继承特性。
+减少选择器的层级。
+JavaScript放在文件尾部，防止阻塞页面的显示。
+写代码避免重绘和重流。
 
-背景图片是预先合并好的，这样能节省网站的 HTTP 请求。">
+其他最小化JavaScript">
 
 
 
@@ -388,9 +400,26 @@ CSSJavaScript放在文件尾部，防止阻塞页面的加载。
 <ul>
 <li>其中的一条是结构和样式分离，e.g. 不要使用 HTML 元素来做 CSS 可以做的事情，使用 <code>&lt;br&gt;</code> 来添加空行。</li>
 </ul>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>放在文件尾部，防止阻塞页面的加载。</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>放在 <code>&lt;head&gt;</code> 标签部分，避免空白或闪烁。</p>
+<p>借用属性的继承特性。</p>
+<p>减少选择器的层级。</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>放在文件尾部，防止阻塞页面的显示。</p>
+<p>写代码避免重绘和重流。<br><!-- TODO: 加入阮一峰的示例代码 --></p>
 <!-- TODO: 如何阻塞页面，如何解决 -->
-<p>背景图片是预先合并好的，这样能节省网站的 HTTP 请求。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>最小化JavaScript和CSS文件。</p>
+<p>尽可能的减少HTTP请求数</p>
+<ul>
+<li>背景图片是预先合并好的，这样能节省网站的 HTTP 请求。</li>
+<li>JavaScript合并。</li>
+<li>CSS合并。</li>
+</ul>
+<p>使用CDN（内容分发网络）</p>
+<ul>
+<li>缺点是要钱。</li>
+</ul>
+<p>使用缓存机制。</p>
+<p>启用Gzip压缩。</p>
+<p>END.</p>
 
       
     </div>
@@ -506,7 +535,7 @@ CSSJavaScript放在文件尾部，防止阻塞页面的加载。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-count">75</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -524,7 +553,7 @@ CSSJavaScript放在文件尾部，防止阻塞页面的加载。
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -570,7 +599,7 @@ CSSJavaScript放在文件尾部，防止阻塞页面的加载。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
