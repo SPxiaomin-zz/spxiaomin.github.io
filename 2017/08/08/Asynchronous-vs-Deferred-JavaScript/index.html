@@ -84,16 +84,26 @@
 
 
 
-<meta name="description" content="IT小处男, 学生">
+<meta name="description" content="Normal Execution12345678&amp;lt;html&amp;gt;&amp;lt;head&amp;gt; ... &amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;  ...  &amp;lt;script src=&quot;script.js&quot;&amp;gt;  ...&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+
+The async Attribute1&amp;lt;script async src=&quot;script.js&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Asynchronous vs Deferred JavaScript">
 <meta property="og:url" content="http://yoursite.com/2017/08/08/Asynchronous-vs-Deferred-JavaScript/index.html">
 <meta property="og:site_name" content="SPxiaomin的博客">
-<meta property="og:description" content="IT小处男, 学生">
-<meta property="og:updated_time" content="2017-08-08T07:47:20.166Z">
+<meta property="og:description" content="Normal Execution12345678&amp;lt;html&amp;gt;&amp;lt;head&amp;gt; ... &amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;  ...  &amp;lt;script src=&quot;script.js&quot;&amp;gt;  ...&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+
+The async Attribute1&amp;lt;script async src=&quot;script.js&quot;">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Normal-Execution.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Async-Execution.png">
+<meta property="og:image" content="http://yoursite.com/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Defer-Execution.png">
+<meta property="og:updated_time" content="2017-08-09T02:41:42.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Asynchronous vs Deferred JavaScript">
-<meta name="twitter:description" content="IT小处男, 学生">
+<meta name="twitter:description" content="Normal Execution12345678&amp;lt;html&amp;gt;&amp;lt;head&amp;gt; ... &amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;  ...  &amp;lt;script src=&quot;script.js&quot;&amp;gt;  ...&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+
+The async Attribute1&amp;lt;script async src=&quot;script.js&quot;">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Normal-Execution.png">
 
 
 
@@ -399,7 +409,19 @@
       
 
       
-        
+        <h2 id="Normal-Execution"><a href="#Normal-Execution" class="headerlink" title="Normal Execution"></a>Normal Execution</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  ...</div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="xml"></span></div><div class="line">  ...</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<img src="/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Normal-Execution.png" alt="Normal Execution" title="Normal Execution">
+<h2 id="The-async-Attribute"><a href="#The-async-Attribute" class="headerlink" title="The async Attribute"></a>The async Attribute</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="undefined"></span></div></pre></td></tr></table></figure>
+<img src="/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Async-Execution.png" alt="Async Execution" title="Async Execution">
+<p><code>script</code> 会和文档解析并行下载，并在一下载完成了之后立刻执行，并且并不会按照文档中的js文件引入顺序执行(如果存在多个js文件的话)。</p>
+<h2 id="The-defer-Attribute"><a href="#The-defer-Attribute" class="headerlink" title="The defer Attribute"></a>The defer Attribute</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="undefined"></span></div></pre></td></tr></table></figure>
+<img src="/2017/08/08/Asynchronous-vs-Deferred-JavaScript/Defer-Execution.png" alt="Defer Execution" title="Defer Execution">
+<p><code>script</code> 会和文档解析并行下载，但是就算在文档解析完毕之前下载完成了，也不会立刻执行，而是等到文档解析完毕、按照原文中的js文件引入顺序按序执行(如果存在多个js文件的话)。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://bitsofco.de/async-vs-defer/" target="_blank" rel="external">Asynchronous vs Deferred JavaScript</a></li>
+</ul>
+<p>END.</p>
+
       
     </div>
 
@@ -497,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -565,6 +596,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Normal-Execution"><span class="nav-number">1.</span> <span class="nav-text">Normal Execution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-async-Attribute"><span class="nav-number">2.</span> <span class="nav-text">The async Attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-defer-Attribute"><span class="nav-number">3.</span> <span class="nav-text">The defer Attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
