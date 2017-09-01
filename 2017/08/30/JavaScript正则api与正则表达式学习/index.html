@@ -100,7 +100,7 @@
 
 举例如下:
 如果我们想将 07700 900166 变成 (077)0090-0166 的格式显示，那么我们该怎么做呢？如果有很多这样的工作需要做的话，我们该怎么做呢？手动一个个操作肯定是特别的麻烦。">
-<meta property="og:updated_time" content="2017-09-01T10:43:32.046Z">
+<meta property="og:updated_time" content="2017-09-01T10:48:54.974Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript正则api与正则表达式学习">
 <meta name="twitter:description" content="正则定义正则表达式，通俗点讲——
@@ -455,7 +455,7 @@
 </ol>
 <p>e.g.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">匹配如下的文本:</div><div class="line"></div><div class="line">rails</div><div class="line">ruby on rails</div><div class="line"></div><div class="line">使用的正则表达式是:</div><div class="line"><span class="regexp">/(ruby on )?rails/g</span></div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">匹配如下的文本:</div><div class="line"></div><div class="line">logo.png</div><div class="line">sunrise.jpg</div><div class="line">smile.gif</div><div class="line"></div><div class="line">使用的正则表达式是:</div><div class="line"><span class="regexp">/[\w]+\.(png|jpg|gif)/g</span></div></pre></td></tr></table></figure>
-<p>现在来讲讲群组中一个比较重要的特性——替换(Substitution)，</p>
+<p>现在来讲讲群组中一个比较重要的特性——<strong>替换(Substitution)</strong>，</p>
 <p>默认正则表达式的引擎会记住群组里面匹配的东西，想要得到群组里面都匹配了什么样的东西，我们可以使用 <code>$n(n表示1-9)</code>，e.g. <code>$1</code> 表示的就是第一个群组里面匹配的东西。还有一个特殊的 <code>$&amp;</code> 表示匹配的整个项目。</p>
 <p>群组分两种: 捕获群组(capturing group)和非捕获群组(non capturing group)。</p>
 <h3 id="重复-Repetition"><a href="#重复-Repetition" class="headerlink" title="重复(Repetition)"></a>重复(Repetition)</h3><p>重复可以放在 单独的字符、字符集、群组的后面，影响的是 <strong>紧挨</strong> 在重复前面的项目。</p>
