@@ -100,7 +100,7 @@
 
 举例如下:
 如果我们想将 07700 900166 变成 (077)0090-0166 的格式显示，那么我们该怎么做呢？如果有很多这样的工作需要做的话，我们该怎么做呢？手动一个个操作肯定是特别的麻烦。">
-<meta property="og:updated_time" content="2017-08-31T08:44:36.792Z">
+<meta property="og:updated_time" content="2017-09-01T08:56:12.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript正则api与正则表达式学习">
 <meta name="twitter:description" content="正则定义正则表达式，通俗点讲——
@@ -438,11 +438,32 @@
 <a id="more"></a>
 <h2 id="正则表达式的写法"><a href="#正则表达式的写法" class="headerlink" title="正则表达式的写法"></a>正则表达式的写法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/hello/g</div></pre></td></tr></table></figure>
 <p>两条斜线的中间是 <strong>匹配模式</strong> ，右边斜线的后面是 <strong>修饰符</strong>。</p>
-<h3 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h3><p>最简单的匹配模式就是直接输入想要匹配的东西，e.g. <code>/a/</code>。</p>
+<h2 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h2><p>最简单的匹配模式就是直接输入想要匹配的东西，e.g. <code>/a/</code>。</p>
 <p>但是要注意了，有些符号在特别的地方有特别的意思，e.g. <code>/./</code> 可以匹配除了换行符以外的任何东西。如果想要匹配这个符号的话，可以 <strong>escape</strong> 一下它，就是不让它有特别的意思，具体操作就是在符号前面加上反斜杠 <code>/\./</code>。</p>
-<h4 id="字符集-Character-Set"><a href="#字符集-Character-Set" class="headerlink" title="字符集(Character Set)"></a>字符集(Character Set)</h4><p>在匹配模式中，我们可以去定义字符集，每个字符集中有可能要匹配的字符，匹配引擎会匹配字符集中的 <strong>任意一个</strong> 字符。</p>
+<h3 id="字符集-Character-Set"><a href="#字符集-Character-Set" class="headerlink" title="字符集(Character Set)"></a>字符集(Character Set)</h3><p>在匹配模式中，我们可以去定义字符集，每个字符集中有可能要匹配的字符，匹配引擎会匹配字符集中的 <strong>任意一个</strong> 字符。</p>
 <p>e.g.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/[abc]/</div><div class="line"><span class="comment">// 匹配 a 或者 b 或者 c。</span></div><div class="line"></div><div class="line">/[.]/</div><div class="line"><span class="comment">// 匹配 . ，这个特殊字符在字符集中不需要转义。如果不在字符集中，就匹配除了换行符以外的任何东西。</span></div><div class="line"></div><div class="line">/[\[\]]/</div><div class="line"><span class="comment">// 有些字符在字符集中还是需要转义一下。</span></div><div class="line"></div><div class="line">/[^abc]/</div><div class="line"><span class="comment">// 否定字符集，就是匹配的东西里面，不能够包含字符集里面出现的东西。</span></div><div class="line"><span class="comment">// 上面的例子匹配的东西不会出现 a 或者 b 或者 c。</span></div></pre></td></tr></table></figure>
+<p>如果字符集里面匹配的东西是全部的小写字母、或者是全部的大写字母、或者是0到9这些数字的话，你不需要把它们都列出到这个字符集里面，可以使用 <strong>字符的范围(Range)</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/[a-z]/</div><div class="line"><span class="comment">// 匹配全部的小写字母</span></div><div class="line"></div><div class="line">/[A-Z]/</div><div class="line"><span class="comment">// 匹配全部的大写字母</span></div><div class="line"></div><div class="line">/[<span class="number">0</span><span class="number">-9</span>]/</div><div class="line"><span class="comment">// 匹配数字 0-9</span></div><div class="line"></div><div class="line">/[^<span class="number">0</span><span class="number">-9</span>]/</div><div class="line"><span class="comment">// 字符的范围也可以是否定的，匹配的东西里面不会包含 0-9</span></div></pre></td></tr></table></figure>
+<p>字符的范围还存在有一些简单的写法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/[\d]/</div><div class="line"><span class="comment">// 上面的正则表达式等同于 /[0-9]/，是英文单词 digit</span></div><div class="line"></div><div class="line">/[\D]/</div><div class="line"><span class="comment">// 上面的正则表达式等同于 /[^0-9]/</span></div><div class="line"></div><div class="line">/[\w]/</div><div class="line"><span class="comment">// 上面的正则表达式等同于 /[a-zA-Z0-9_]/，是英文单词 word</span></div><div class="line"></div><div class="line">/[\W]/</div><div class="line"><span class="comment">// 上面的正则表达式等同于 /[^a-zA-Z0-9_]/</span></div><div class="line"></div><div class="line">/[\s]/</div><div class="line"><span class="comment">// 上面的正则表达式等同于 /[\t\r\n ]/，是英文单词 whitespace</span></div><div class="line"></div><div class="line">/[\S]/</div><div class="line"><span class="comment">// 上面的正则表达式等同于 /[^\t\r\n ]/</span></div></pre></td></tr></table></figure>
+<h3 id="群组-Group"><a href="#群组-Group" class="headerlink" title="群组(Group)"></a>群组(Group)</h3><p>在正则表达式的匹配模式里面，我们可以根据自己的需求将匹配模式划分为一些群组，群组可以</p>
+<ol>
+<li>使复杂的匹配模式更容易读懂；</li>
+<li>也可以单独为每一个群组应用不同的操作；</li>
+<li>而且这个群组里面的东西也可以被记住，稍后我们可以继续利用被记住的内容；</li>
+</ol>
+<p>e.g.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">匹配如下的文本:</div><div class="line"></div><div class="line">rails</div><div class="line">ruby on rails</div><div class="line"></div><div class="line">使用的正则表达式是:</div><div class="line"><span class="regexp">/(ruby on )?rails/g</span></div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line">匹配如下的文本:</div><div class="line"></div><div class="line">logo.png</div><div class="line">sunrise.jpg</div><div class="line">smile.gif</div><div class="line"></div><div class="line">使用的正则表达式是:</div><div class="line"><span class="regexp">/[\w]+\.(png|jpg|gif)/g</span></div></pre></td></tr></table></figure>
+<h3 id="重复-Repetition"><a href="#重复-Repetition" class="headerlink" title="重复(Repetition)"></a>重复(Repetition)</h3><p>重复可以放在 单独的字符、字符集、群组的后面，影响的是 <strong>紧挨</strong> 在重复前面的项目。</p>
+<p><code>*</code>，表示重复出现多次或者不出现。</p>
+<p><code>+</code>，表示至少出现一次。</p>
+<p><code>?</code>，表示最多只能够出现一次或者不出现。</p>
+<p>明确指定重复出现的最小和最大的次数:</p>
+<p><code>{num}</code>，表示具体出现多少次。</p>
+<p><code>{num, }</code>，表示出现num次或者更多次。</p>
+<p><code>{min-num, max-num}</code>，表示出现的次数在什么范围之类，包括边界值。</p>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p><code>m</code>，是multi-line的意思，即多行，需要这个修饰符的原因是默认情况下进行匹配的时候是将文本作为一行来进行处理的，添加这个修饰符之后，就会将多行文本当作多行来进行处理。</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="http://lixiaolai.com/2016/07/19/makecs-regular-expression/" target="_blank" rel="external">正则表达式极简“入门”</a></li>
 </ul>
@@ -631,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则定义"><span class="nav-number">1.</span> <span class="nav-text">正则定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#举例如下"><span class="nav-number">1.1.</span> <span class="nav-text">举例如下:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式的写法"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的写法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配模式"><span class="nav-number">2.1.</span> <span class="nav-text">匹配模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符集-Character-Set"><span class="nav-number">2.1.1.</span> <span class="nav-text">字符集(Character Set)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则定义"><span class="nav-number">1.</span> <span class="nav-text">正则定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#举例如下"><span class="nav-number">1.1.</span> <span class="nav-text">举例如下:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式的写法"><span class="nav-number">2.</span> <span class="nav-text">正则表达式的写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配模式"><span class="nav-number">3.</span> <span class="nav-text">匹配模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符集-Character-Set"><span class="nav-number">3.1.</span> <span class="nav-text">字符集(Character Set)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#群组-Group"><span class="nav-number">3.2.</span> <span class="nav-text">群组(Group)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复-Repetition"><span class="nav-number">3.3.</span> <span class="nav-text">重复(Repetition)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">4.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
