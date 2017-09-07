@@ -139,13 +139,98 @@ smile.gif
 
 使用的正则表达式是:
 /[\w]+\.(png|jpg|gif)/g
+上面的正则表达式中使用了一个群组的特性 `或者(即 | )`，表示匹配其中的任何一个都可以。
 ```
 
 现在来讲讲群组中一个比较重要的特性——**替换(Substitution)**，
 
 默认正则表达式的引擎会记住群组里面匹配的东西，想要得到群组里面都匹配了什么样的东西，我们可以使用 `$n(n表示1-9)`，e.g. `$1` 表示的就是第一个群组里面匹配的东西。还有一个特殊的 `$&` 表示匹配的整个项目。
 
+e.g.
+
+```js
+const pattern = /([\w]+)\.(png|jpg|gif)/g;
+let text = `
+  logo.png
+  sunrise.jpg
+  smile.gif
+`;
+
+text.replace(pattern, '$& 文件名是: $1 扩展名是: $2');
+```
+
 群组分两种: 捕获群组(capturing group)和非捕获群组(non capturing group)。
+
+e.g.
+
+```js
+/[\w]+\.(png|jpg|gif)/
+// 上面的是捕获群组(capturing group)
+
+/[\w]+\.(?:png|jpg|gif)/
+// 上面的是非捕获群组(non capturing group)
+```
+
+#### 反向引用(BackReferences)
+
+反向引用(BackReferences)就是你可以在匹配模式里面去引用前面用群组匹配记住的东西。
+
+e.g.
+
+```js
+有如下的文本:
+
+<h1>hello</h1>
+<h2>hello</h2>
+<h3>hello</h2>
+
+如果使用如下的正则表达式的话，那么就可以匹配上面的3个标题(包括第3个标签使用错误的标题)。
+/<h\d>.+<\/h\d>/g
+
+如果使用如下的正则表达式的话，因为借助了反向引用(BackReferences)，那么第3个标题就不会匹配上了。
+/<(h\d)>.+<\/\1>/g
+```
+
+#### 环视(Lookaround)
+
+环视(Lookaround)它本身不匹配东西，它的作用有点像一个判断的条件，如果条件通过，就会返回匹配模式里面 **其他部分** 要匹配的东西，它有两个类型:
+
+1. lookahead
+2. lookbehind
+
+JavaScript不支持 lookbehind。
+
+lookahead也是分为两种的:
+
+1. 正类型的 lookahead(positive lookahead)；
+2. 负类型的 lookahead(negative lookahead)；
+
+e.g.
+
+```js
+下面有几个使用了不同单位的数字，我现在只想匹配px单位的数字:
+'1pt 2px 3em 6px 90px'
+
+下面的正则表达式(positive lookahead)表示匹配全部的后面带 px 的数字(匹配 2、6、90)，不是 px 的数字不进行匹配。
+/\d+(?=px)/g
+
+下面的正则表达式(negative lookahead)表示匹配全部的后面不带 px 的数字(匹配 1、3、9)，是 px 的数字不进行匹配。
+/\d+(?!px)/g
+注意上面的正则表达式也匹配了90px中的9，因为9后面的是0、也不是px。但是可以通过添加一个(negative lookahead)来取消匹配9，如下:
+/\d+(?!px)(?!\d)/g
+```
+
+### 边界
+
+#### 行的开始与结束
+
+表示行的开始位置的是 `^`，表示行的结束位置的是 `$`。
+
+
+
+###
+
+
 
 ### 重复(Repetition)
 
