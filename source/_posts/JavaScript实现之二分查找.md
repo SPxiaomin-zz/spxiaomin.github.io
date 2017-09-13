@@ -55,6 +55,8 @@ function binarySearch(arr, target) {
 }
 ```
 
+<!-- more -->
+
 ## 用二分查找法找寻边界值
 
 ### 用二分查找法找寻上界值
